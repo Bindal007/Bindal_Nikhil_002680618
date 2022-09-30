@@ -26,23 +26,46 @@ public class Dashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        mainPanel = new javax.swing.JPanel();
+        dashboardPanel = new javax.swing.JPanel();
         sidePanel = new javax.swing.JPanel();
         lblUserImg = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblUsername = new javax.swing.JLabel();
+        lblDesignation = new javax.swing.JLabel();
         btnViewLoggedInUserProfile = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        btn1 = new javax.swing.JPanel();
+        lblViewUserProfile = new javax.swing.JLabel();
+        btnDashboard = new javax.swing.JPanel();
         lblDashIcon = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lblDashboard = new javax.swing.JLabel();
+        btnEmployee = new javax.swing.JPanel();
+        lblEmpIcon = new javax.swing.JLabel();
+        lblEmployee = new javax.swing.JLabel();
+        btnViewLogout = new javax.swing.JPanel();
+        lblLogoutBtn = new javax.swing.JLabel();
+        headerPanel = new javax.swing.JPanel();
+        lblCloseWindowIcon = new javax.swing.JLabel();
+        lblAboutUS = new javax.swing.JLabel();
+        lblContact = new javax.swing.JLabel();
+        controlPanel = new javax.swing.JPanel();
+        p1 = new javax.swing.JPanel();
+        lblWelcome = new javax.swing.JLabel();
+        sepWelcome = new javax.swing.JSeparator();
+        lblEmpSec = new javax.swing.JLabel();
+        lblEmpInfoIcon = new javax.swing.JLabel();
+        addEmployeePanel = new javax.swing.JPanel();
+        lblIconAddEmployee = new javax.swing.JLabel();
+        lblAddEmployee = new javax.swing.JLabel();
+        updateEmployeePanel = new javax.swing.JPanel();
+        lblIconUpdateEmployee = new javax.swing.JLabel();
+        lblUpdateEmployee = new javax.swing.JLabel();
+        deleteEmployeePanel = new javax.swing.JPanel();
+        lblIconDeleteEmployee = new javax.swing.JLabel();
+        lblDeleteEmployee = new javax.swing.JLabel();
+        p2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        mainPanel.setBackground(new java.awt.Color(240, 240, 240));
-        mainPanel.setForeground(new java.awt.Color(255, 255, 255));
-        mainPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        dashboardPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 2, new java.awt.Color(153, 153, 153)));
+        dashboardPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         sidePanel.setBackground(new java.awt.Color(0, 0, 104));
         sidePanel.setPreferredSize(new java.awt.Dimension(130, 600));
@@ -50,76 +73,312 @@ public class Dashboard extends javax.swing.JFrame {
 
         lblUserImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblUserImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/User_Icon.png"))); // NOI18N
-        sidePanel.add(lblUserImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 5, 130, 80));
+        sidePanel.add(lblUserImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 80));
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 204, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Admin");
-        sidePanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 130, 15));
+        lblUsername.setBackground(new java.awt.Color(255, 255, 255));
+        lblUsername.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        lblUsername.setForeground(new java.awt.Color(0, 204, 0));
+        lblUsername.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUsername.setText("Admin");
+        sidePanel.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 130, 15));
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 10)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 204, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("HR Manager");
-        sidePanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 130, -1));
+        lblDesignation.setBackground(new java.awt.Color(255, 255, 255));
+        lblDesignation.setFont(new java.awt.Font("Helvetica Neue", 1, 10)); // NOI18N
+        lblDesignation.setForeground(new java.awt.Color(102, 204, 255));
+        lblDesignation.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDesignation.setText("HR Manager");
+        sidePanel.add(lblDesignation, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 130, -1));
 
         btnViewLoggedInUserProfile.setBackground(new java.awt.Color(0, 0, 51));
 
-        jLabel3.setBackground(new java.awt.Color(240, 240, 240));
-        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("View Profile");
-        jLabel3.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(255, 255, 255)));
+        lblViewUserProfile.setBackground(new java.awt.Color(240, 240, 240));
+        lblViewUserProfile.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        lblViewUserProfile.setForeground(new java.awt.Color(255, 255, 255));
+        lblViewUserProfile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblViewUserProfile.setText("View Profile");
+        lblViewUserProfile.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(255, 255, 255)));
 
         javax.swing.GroupLayout btnViewLoggedInUserProfileLayout = new javax.swing.GroupLayout(btnViewLoggedInUserProfile);
         btnViewLoggedInUserProfile.setLayout(btnViewLoggedInUserProfileLayout);
         btnViewLoggedInUserProfileLayout.setHorizontalGroup(
             btnViewLoggedInUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+            .addComponent(lblViewUserProfile, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
         btnViewLoggedInUserProfileLayout.setVerticalGroup(
             btnViewLoggedInUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+            .addComponent(lblViewUserProfile, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
         );
 
         sidePanel.add(btnViewLoggedInUserProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 90, 30));
 
-        btn1.setBackground(new java.awt.Color(0, 0, 51));
-        btn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        btnDashboard.setBackground(new java.awt.Color(0, 0, 51));
+        btnDashboard.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDashboard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDashboardMouseClicked(evt);
+            }
+        });
+        btnDashboard.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblDashIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDashIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Laptop_Icon.png"))); // NOI18N
-        btn1.add(lblDashIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 130, 30));
+        btnDashboard.add(lblDashIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 130, 30));
 
-        jLabel5.setBackground(new java.awt.Color(240, 240, 240));
-        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Dashboard");
-        btn1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 130, 10));
+        lblDashboard.setBackground(new java.awt.Color(240, 240, 240));
+        lblDashboard.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        lblDashboard.setForeground(new java.awt.Color(255, 255, 255));
+        lblDashboard.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDashboard.setText("Dashboard");
+        btnDashboard.add(lblDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 130, 10));
 
-        sidePanel.add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 160, 124, 60));
+        sidePanel.add(btnDashboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 160, 124, 60));
 
-        mainPanel.add(sidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 600));
+        btnEmployee.setBackground(new java.awt.Color(0, 0, 51));
+        btnEmployee.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEmployee.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEmployeeMouseClicked(evt);
+            }
+        });
+        btnEmployee.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblEmpIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEmpIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Employee_Icon.png"))); // NOI18N
+        btnEmployee.add(lblEmpIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 130, 30));
+
+        lblEmployee.setBackground(new java.awt.Color(240, 240, 240));
+        lblEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        lblEmployee.setForeground(new java.awt.Color(255, 255, 255));
+        lblEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEmployee.setText("Employees");
+        btnEmployee.add(lblEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 130, 20));
+
+        sidePanel.add(btnEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 220, 124, 60));
+
+        btnViewLogout.setBackground(new java.awt.Color(0, 0, 51));
+
+        lblLogoutBtn.setBackground(new java.awt.Color(240, 240, 240));
+        lblLogoutBtn.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        lblLogoutBtn.setForeground(new java.awt.Color(255, 255, 255));
+        lblLogoutBtn.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogoutBtn.setText("Log Out");
+        lblLogoutBtn.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(255, 255, 255)));
+
+        javax.swing.GroupLayout btnViewLogoutLayout = new javax.swing.GroupLayout(btnViewLogout);
+        btnViewLogout.setLayout(btnViewLogoutLayout);
+        btnViewLogoutLayout.setHorizontalGroup(
+            btnViewLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblLogoutBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+        );
+        btnViewLogoutLayout.setVerticalGroup(
+            btnViewLogoutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblLogoutBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        sidePanel.add(btnViewLogout, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 500, 124, 30));
+
+        dashboardPanel.add(sidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 600));
+
+        headerPanel.setBackground(new java.awt.Color(255, 255, 255));
+        headerPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 0, 2, new java.awt.Color(153, 153, 153)));
+        headerPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblCloseWindowIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Cancel_Icon.png"))); // NOI18N
+        lblCloseWindowIcon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCloseWindowIconMouseClicked(evt);
+            }
+        });
+        headerPanel.add(lblCloseWindowIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 5, -1, -1));
+
+        lblAboutUS.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblAboutUS.setForeground(new java.awt.Color(153, 153, 153));
+        lblAboutUS.setText("About Us");
+        headerPanel.add(lblAboutUS, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 5, 70, 24));
+
+        lblContact.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblContact.setForeground(new java.awt.Color(153, 153, 153));
+        lblContact.setText("Contact");
+        headerPanel.add(lblContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 5, 60, 24));
+
+        dashboardPanel.add(headerPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 1, 900, 35));
+
+        controlPanel.setLayout(new java.awt.CardLayout());
+
+        p1.setBackground(new java.awt.Color(218, 228, 230));
+
+        lblWelcome.setBackground(new java.awt.Color(240, 240, 240));
+        lblWelcome.setFont(new java.awt.Font("Helvetica Neue", 1, 48)); // NOI18N
+        lblWelcome.setForeground(new java.awt.Color(255, 255, 255));
+        lblWelcome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblWelcome.setText("Welcome to EMS");
+
+        sepWelcome.setBackground(new java.awt.Color(240, 240, 240));
+        sepWelcome.setForeground(new java.awt.Color(153, 153, 153));
+
+        lblEmpSec.setBackground(new java.awt.Color(240, 240, 240));
+        lblEmpSec.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblEmpSec.setForeground(new java.awt.Color(51, 51, 51));
+        lblEmpSec.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEmpSec.setText("Employee Section");
+
+        lblEmpInfoIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEmpInfoIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Identicator_Icon.png"))); // NOI18N
+
+        addEmployeePanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 3, new java.awt.Color(153, 153, 153)));
+        addEmployeePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        addEmployeePanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                addEmployeePanelMouseClicked(evt);
+            }
+        });
+        addEmployeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblIconAddEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconAddEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Add_Icon.png"))); // NOI18N
+        addEmployeePanel.add(lblIconAddEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
+
+        lblAddEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblAddEmployee.setForeground(new java.awt.Color(51, 204, 0));
+        lblAddEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAddEmployee.setText("Add Employee");
+        addEmployeePanel.add(lblAddEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
+
+        updateEmployeePanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 3, new java.awt.Color(153, 153, 153)));
+        updateEmployeePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        updateEmployeePanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateEmployeePanelMouseClicked(evt);
+            }
+        });
+        updateEmployeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblIconUpdateEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconUpdateEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Update_Icon.png"))); // NOI18N
+        updateEmployeePanel.add(lblIconUpdateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
+
+        lblUpdateEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblUpdateEmployee.setForeground(new java.awt.Color(0, 102, 204));
+        lblUpdateEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUpdateEmployee.setText("Update Employee");
+        updateEmployeePanel.add(lblUpdateEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
+
+        deleteEmployeePanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 3, new java.awt.Color(153, 153, 153)));
+        deleteEmployeePanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        deleteEmployeePanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deleteEmployeePanelMouseClicked(evt);
+            }
+        });
+        deleteEmployeePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblIconDeleteEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIconDeleteEmployee.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Delete_Icon.png"))); // NOI18N
+        deleteEmployeePanel.add(lblIconDeleteEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, 80));
+
+        lblDeleteEmployee.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
+        lblDeleteEmployee.setForeground(new java.awt.Color(204, 0, 0));
+        lblDeleteEmployee.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDeleteEmployee.setText("Delete Employee");
+        deleteEmployeePanel.add(lblDeleteEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 90, 160, 30));
+
+        javax.swing.GroupLayout p1Layout = new javax.swing.GroupLayout(p1);
+        p1.setLayout(p1Layout);
+        p1Layout.setHorizontalGroup(
+            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p1Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(p1Layout.createSequentialGroup()
+                        .addComponent(addEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(updateEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(deleteEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblWelcome)
+                    .addComponent(sepWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 485, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(p1Layout.createSequentialGroup()
+                        .addComponent(lblEmpSec)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblEmpInfoIcon)))
+                .addContainerGap(208, Short.MAX_VALUE))
+        );
+        p1Layout.setVerticalGroup(
+            p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(p1Layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(lblWelcome)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sepWelcome, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(p1Layout.createSequentialGroup()
+                        .addGroup(p1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblEmpSec)
+                            .addComponent(lblEmpInfoIcon))
+                        .addGap(18, 18, 18)
+                        .addComponent(addEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(updateEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(266, Short.MAX_VALUE))
+        );
+
+        controlPanel.add(p1, "card2");
+
+        javax.swing.GroupLayout p2Layout = new javax.swing.GroupLayout(p2);
+        p2.setLayout(p2Layout);
+        p2Layout.setHorizontalGroup(
+            p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 770, Short.MAX_VALUE)
+        );
+        p2Layout.setVerticalGroup(
+            p2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 560, Short.MAX_VALUE)
+        );
+
+        controlPanel.add(p2, "card3");
+
+        dashboardPanel.add(controlPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 35, 770, 560));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(dashboardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(dashboardPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void lblCloseWindowIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCloseWindowIconMouseClicked
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_lblCloseWindowIconMouseClicked
+
+    private void btnDashboardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDashboardMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDashboardMouseClicked
+
+    private void btnEmployeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmployeeMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEmployeeMouseClicked
+
+    private void addEmployeePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addEmployeePanelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addEmployeePanelMouseClicked
+
+    private void updateEmployeePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateEmployeePanelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateEmployeePanelMouseClicked
+
+    private void deleteEmployeePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deleteEmployeePanelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteEmployeePanelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -157,15 +416,40 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel btn1;
+    private javax.swing.JPanel addEmployeePanel;
+    private javax.swing.JPanel btnDashboard;
+    private javax.swing.JPanel btnEmployee;
     private javax.swing.JPanel btnViewLoggedInUserProfile;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel btnViewLogout;
+    private javax.swing.JPanel controlPanel;
+    private javax.swing.JPanel dashboardPanel;
+    private javax.swing.JPanel deleteEmployeePanel;
+    private javax.swing.JPanel headerPanel;
+    private javax.swing.JLabel lblAboutUS;
+    private javax.swing.JLabel lblAddEmployee;
+    private javax.swing.JLabel lblCloseWindowIcon;
+    private javax.swing.JLabel lblContact;
     private javax.swing.JLabel lblDashIcon;
+    private javax.swing.JLabel lblDashboard;
+    private javax.swing.JLabel lblDeleteEmployee;
+    private javax.swing.JLabel lblDesignation;
+    private javax.swing.JLabel lblEmpIcon;
+    private javax.swing.JLabel lblEmpInfoIcon;
+    private javax.swing.JLabel lblEmpSec;
+    private javax.swing.JLabel lblEmployee;
+    private javax.swing.JLabel lblIconAddEmployee;
+    private javax.swing.JLabel lblIconDeleteEmployee;
+    private javax.swing.JLabel lblIconUpdateEmployee;
+    private javax.swing.JLabel lblLogoutBtn;
+    private javax.swing.JLabel lblUpdateEmployee;
     private javax.swing.JLabel lblUserImg;
-    private javax.swing.JPanel mainPanel;
+    private javax.swing.JLabel lblUsername;
+    private javax.swing.JLabel lblViewUserProfile;
+    private javax.swing.JLabel lblWelcome;
+    private javax.swing.JPanel p1;
+    private javax.swing.JPanel p2;
+    private javax.swing.JSeparator sepWelcome;
     private javax.swing.JPanel sidePanel;
+    private javax.swing.JPanel updateEmployeePanel;
     // End of variables declaration//GEN-END:variables
 }

@@ -138,13 +138,13 @@ public class LoginForm extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         String username = txtUsername.getText();
         String password = String.valueOf(txtPassword.getPassword());
-        System.out.println(username.equals("Admin"));
         if(username.isBlank() || username.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Username field is empty");
         } else if(password.isBlank() || password.isEmpty()) {
