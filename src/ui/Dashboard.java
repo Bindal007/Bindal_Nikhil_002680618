@@ -26,17 +26,96 @@ public class Dashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        mainPanel = new javax.swing.JPanel();
+        sidePanel = new javax.swing.JPanel();
+        lblUserImg = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btnViewLoggedInUserProfile = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        btn1 = new javax.swing.JPanel();
+        lblDashIcon = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        mainPanel.setBackground(new java.awt.Color(240, 240, 240));
+        mainPanel.setForeground(new java.awt.Color(255, 255, 255));
+        mainPanel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        sidePanel.setBackground(new java.awt.Color(0, 0, 104));
+        sidePanel.setPreferredSize(new java.awt.Dimension(130, 600));
+        sidePanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblUserImg.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblUserImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/User_Icon.png"))); // NOI18N
+        sidePanel.add(lblUserImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 5, 130, 80));
+
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 13)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 204, 0));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Admin");
+        sidePanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 130, 15));
+
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 10)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 204, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("HR Manager");
+        sidePanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 130, -1));
+
+        btnViewLoggedInUserProfile.setBackground(new java.awt.Color(0, 0, 51));
+
+        jLabel3.setBackground(new java.awt.Color(240, 240, 240));
+        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("View Profile");
+        jLabel3.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(255, 255, 255)));
+
+        javax.swing.GroupLayout btnViewLoggedInUserProfileLayout = new javax.swing.GroupLayout(btnViewLoggedInUserProfile);
+        btnViewLoggedInUserProfile.setLayout(btnViewLoggedInUserProfileLayout);
+        btnViewLoggedInUserProfileLayout.setHorizontalGroup(
+            btnViewLoggedInUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+        );
+        btnViewLoggedInUserProfileLayout.setVerticalGroup(
+            btnViewLoggedInUserProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+        );
+
+        sidePanel.add(btnViewLoggedInUserProfile, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 90, 30));
+
+        btn1.setBackground(new java.awt.Color(0, 0, 51));
+        btn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblDashIcon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDashIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Laptop_Icon.png"))); // NOI18N
+        btn1.add(lblDashIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 5, 130, 30));
+
+        jLabel5.setBackground(new java.awt.Color(240, 240, 240));
+        jLabel5.setFont(new java.awt.Font("Helvetica Neue", 1, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("Dashboard");
+        btn1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 130, 10));
+
+        sidePanel.add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(3, 160, 124, 60));
+
+        mainPanel.add(sidePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 600));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -78,5 +157,15 @@ public class Dashboard extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel btn1;
+    private javax.swing.JPanel btnViewLoggedInUserProfile;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel lblDashIcon;
+    private javax.swing.JLabel lblUserImg;
+    private javax.swing.JPanel mainPanel;
+    private javax.swing.JPanel sidePanel;
     // End of variables declaration//GEN-END:variables
 }
