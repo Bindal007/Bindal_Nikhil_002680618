@@ -155,6 +155,9 @@ public class LoginForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Invalid Password!");
         } else {
             JOptionPane.showMessageDialog(this, "Login Successful!");
+            Dashboard dashboard = new Dashboard();
+            dashboard.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
