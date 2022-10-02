@@ -23,6 +23,7 @@ public class Dashboard extends javax.swing.JFrame {
     boolean empStatus;
     String empGender;
     EmployeeList employees;
+    Employee currentEmployee;
     public Dashboard() {
         initComponents();
         this.employees = new EmployeeList();
@@ -149,7 +150,7 @@ public class Dashboard extends javax.swing.JFrame {
         lblEmpIdDelete = new javax.swing.JLabel();
         txtEmpIdDelete = new javax.swing.JLabel();
         lblEmpNameDelete = new javax.swing.JLabel();
-        txtNameEmpNameDelete = new javax.swing.JLabel();
+        txtEmpNameDelete = new javax.swing.JLabel();
         lblEmpAgeDelete = new javax.swing.JLabel();
         txtEmpAgeDelete = new javax.swing.JLabel();
         lblEmpContactDelete = new javax.swing.JLabel();
@@ -179,7 +180,7 @@ public class Dashboard extends javax.swing.JFrame {
         lblEmpIdReport = new javax.swing.JLabel();
         txtEmpIdReport = new javax.swing.JLabel();
         lblEmpNameReport = new javax.swing.JLabel();
-        txtNameEmpNameReport = new javax.swing.JLabel();
+        txtEmpNameReport = new javax.swing.JLabel();
         lblEmpAgeReport = new javax.swing.JLabel();
         txtEmpAgeReport = new javax.swing.JLabel();
         lblEmpContactReport = new javax.swing.JLabel();
@@ -1156,9 +1157,9 @@ public class Dashboard extends javax.swing.JFrame {
         lblEmpNameDelete.setForeground(new java.awt.Color(255, 255, 255));
         lblEmpNameDelete.setText("Name:");
 
-        txtNameEmpNameDelete.setFont(new java.awt.Font("Cabin Sketch", 1, 14)); // NOI18N
-        txtNameEmpNameDelete.setForeground(new java.awt.Color(0, 153, 204));
-        txtNameEmpNameDelete.setText("empName");
+        txtEmpNameDelete.setFont(new java.awt.Font("Cabin Sketch", 1, 14)); // NOI18N
+        txtEmpNameDelete.setForeground(new java.awt.Color(0, 153, 204));
+        txtEmpNameDelete.setText("empName");
 
         lblEmpAgeDelete.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         lblEmpAgeDelete.setForeground(new java.awt.Color(255, 255, 255));
@@ -1211,7 +1212,7 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(txtEmpEmailDelete)
                     .addComponent(txtEmpAgeDelete)
                     .addComponent(txtEmpIdDelete)
-                    .addComponent(txtNameEmpNameDelete)
+                    .addComponent(txtEmpNameDelete)
                     .addComponent(txtEmpContactDelete))
                 .addContainerGap(138, Short.MAX_VALUE))
         );
@@ -1225,7 +1226,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(userInfoPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmpNameDelete)
-                    .addComponent(txtNameEmpNameDelete))
+                    .addComponent(txtEmpNameDelete))
                 .addGap(8, 8, 8)
                 .addGroup(userInfoPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmpAgeDelete)
@@ -1419,6 +1420,11 @@ public class Dashboard extends javax.swing.JFrame {
                 txtSearchReportPaneFocusLost(evt);
             }
         });
+        txtSearchReportPane.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchReportPaneActionPerformed(evt);
+            }
+        });
         txtSearchReportPane.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtSearchReportPaneKeyPressed(evt);
@@ -1482,9 +1488,9 @@ public class Dashboard extends javax.swing.JFrame {
         lblEmpNameReport.setForeground(new java.awt.Color(255, 255, 255));
         lblEmpNameReport.setText("Name:");
 
-        txtNameEmpNameReport.setFont(new java.awt.Font("Cabin Sketch", 1, 14)); // NOI18N
-        txtNameEmpNameReport.setForeground(new java.awt.Color(0, 153, 204));
-        txtNameEmpNameReport.setText("empName");
+        txtEmpNameReport.setFont(new java.awt.Font("Cabin Sketch", 1, 14)); // NOI18N
+        txtEmpNameReport.setForeground(new java.awt.Color(0, 153, 204));
+        txtEmpNameReport.setText("empName");
 
         lblEmpAgeReport.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         lblEmpAgeReport.setForeground(new java.awt.Color(255, 255, 255));
@@ -1537,7 +1543,7 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(txtEmpEmailReport)
                     .addComponent(txtEmpAgeReport)
                     .addComponent(txtEmpIdReport)
-                    .addComponent(txtNameEmpNameReport)
+                    .addComponent(txtEmpNameReport)
                     .addComponent(txtEmpContactReport))
                 .addContainerGap(138, Short.MAX_VALUE))
         );
@@ -1551,7 +1557,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(userInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmpNameReport)
-                    .addComponent(txtNameEmpNameReport))
+                    .addComponent(txtEmpNameReport))
                 .addGap(8, 8, 8)
                 .addGroup(userInfoPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmpAgeReport)
@@ -1938,13 +1944,13 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
         String fname = txtFname.getText();
         String lname = txtLname.getText();
-        int age =  Integer.parseInt(txtAge.getText());
+        int age =  txtAge.getText().isEmpty() ? null : Integer.parseInt(txtAge.getText());
         boolean status = this.empStatus;
         String gender = this.empGender;
         String startDate = txtStartDate.getText();
         String dept = txtDepartment.getText();
         String designation = txtDesignation.getText();
-        int empID =  Integer.parseInt(txtEmpId.getText());
+        int empID =  txtAge.getText().isEmpty() ? null : Integer.parseInt(txtEmpId.getText());
         String profilePic = "";
         String email = txtEmail.getText();
         String phnNo = txtNumber.getText();
@@ -1970,6 +1976,12 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
+        addEmployeePane.setVisible(false);
+        panelDashboard.setVisible(true);
+        panelEmployees.setVisible(false);
+        updateEmployeePane.setVisible(false);
+        deleteEmployeePane.setVisible(false);
+        reportEmployeePane.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void r_ActiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_ActiveActionPerformed
@@ -2001,12 +2013,20 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void txtSearch1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearch1FocusLost
         // TODO add your handling code here:
+        if(txtSearch1.getText().isEmpty()) {
+            txtSearch1.setText("                                                           Enter Employee Id, First Name or Email to Search");
+        }
+    
     }//GEN-LAST:event_txtSearch1FocusLost
 
     private void txtSearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearch1ActionPerformed
         // TODO add your handling code here:
         String searchTxt = txtSearch1.getText();
-        populateEmployeesDataToTable(searchTxt);
+        if(txtSearch1.getText().isEmpty()) {
+            txtSearch1.setText("                                                           Enter Employee Id, First Name or Email to Search");
+        } else {
+            populateEmployeesDataToTable(searchTxt);
+        }
     }//GEN-LAST:event_txtSearch1ActionPerformed
 
     private void txtSearch1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearch1KeyPressed
@@ -2062,10 +2082,22 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
         // TODO add your handling code here:
+        addEmployeePane.setVisible(false);
+        panelDashboard.setVisible(true);
+        panelEmployees.setVisible(false);
+        updateEmployeePane.setVisible(false);
+        deleteEmployeePane.setVisible(false);
+        reportEmployeePane.setVisible(false);
     }//GEN-LAST:event_btnBack1ActionPerformed
 
     private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
         // TODO add your handling code here:
+        addEmployeePane.setVisible(false);
+        panelDashboard.setVisible(true);
+        panelEmployees.setVisible(false);
+        updateEmployeePane.setVisible(false);
+        deleteEmployeePane.setVisible(false);
+        reportEmployeePane.setVisible(false);
     }//GEN-LAST:event_btnBack2ActionPerformed
 
     private void txtSearchDeletePaneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearchDeletePaneFocusGained
@@ -2082,11 +2114,77 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
+        employees.deleteEmployee(this.currentEmployee);
+        JOptionPane.showMessageDialog(this, "Employee removed from database!");
+        txtSearchDeletePane.setText("Enter Employee Id to Search");
+        
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void txtSearchDeletePaneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchDeletePaneActionPerformed
         // TODO add your handling code here:
+        String searchTxt = txtSearchDeletePane.getText();
+        if(txtSearchDeletePane.getText().isEmpty()) {
+            txtSearchDeletePane.setText("Enter Employee Id to Search");
+            txtEmpIdDelete.setText("");
+            txtEmpNameDelete.setText("");
+            txtEmpAgeDelete.setText("");
+            txtEmpContactDelete.setText("");
+            txtEmpEmailDelete.setText("");
+            txtEmpAddressDelete.setText("");
+
+            txtEmpDeptDelete.setText("");
+            txtEmpDesgnDelete.setText("");
+            txtEmpStartDateDelete.setText("");
+            txtEmpStatusDelete.setText("");
+        } else {
+            for(Employee emp : employees.getEmployees()) {
+                if(String.valueOf(emp.getEmpID()).equals(searchTxt)) {
+                    this.currentEmployee = emp;
+                    ContactDetails contactDetail = emp.getContactDetails();
+                    String status = emp.isStatus() ? "Active" : "In-Active";
+                    txtEmpIdDelete.setText(searchTxt);
+                    txtEmpNameDelete.setText(emp.getFname() + " " + emp.getLname());
+                    txtEmpAgeDelete.setText(String.valueOf(emp.getAge()));
+                    txtEmpContactDelete.setText(contactDetail.getPhoneNumber());
+                    txtEmpEmailDelete.setText(contactDetail.getEmail());
+                    txtEmpAddressDelete.setText(contactDetail.getAddress());
+                    
+                    txtEmpDeptDelete.setText(emp.getDept());
+                    txtEmpDesgnDelete.setText(emp.getDesignation());
+                    txtEmpStartDateDelete.setText(emp.getStartDate());
+                    txtEmpStatusDelete.setText(status);
+                    
+                    
+                }
+            }
+        }
     }//GEN-LAST:event_txtSearchDeletePaneActionPerformed
+
+    private void txtSearchReportPaneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchReportPaneActionPerformed
+        // TODO add your handling code here:
+        String searchTxt = txtSearchReportPane.getText();
+        if(txtSearchReportPane.getText().isEmpty()) {
+            txtSearchReportPane.setText("Enter Employee Id to Search");
+        } else {
+            for(Employee emp : employees.getEmployees()) {
+                if(String.valueOf(emp.getEmpID()).equals(searchTxt)) {
+                    ContactDetails contactDetail = emp.getContactDetails();
+                    String status = emp.isStatus() ? "Active" : "In-Active";
+                    txtEmpIdReport.setText(searchTxt);
+                    txtEmpNameReport.setText(emp.getFname() + " " + emp.getLname());
+                    txtEmpAgeReport.setText(String.valueOf(emp.getAge()));
+                    txtEmpContactReport.setText(contactDetail.getPhoneNumber());
+                    txtEmpEmailReport.setText(contactDetail.getEmail());
+                    txtEmpAddressReport.setText(contactDetail.getAddress());
+                    
+                    txtEmpDeptReport.setText(emp.getDept());
+                    txtEmpDesgnReport.setText(emp.getDesignation());
+                    txtEmpStartDateReport.setText(emp.getStartDate());
+                    txtEmpStatusReport.setText(status);
+                }
+            }
+        }
+    }//GEN-LAST:event_txtSearchReportPaneActionPerformed
 
     private void populateEmployeesDataToTable(String filter) {
         DefaultTableModel model = (DefaultTableModel) tblEmployeesData.getModel();
@@ -2309,6 +2407,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmpId1;
     private javax.swing.JLabel txtEmpIdDelete;
     private javax.swing.JLabel txtEmpIdReport;
+    private javax.swing.JLabel txtEmpNameDelete;
+    private javax.swing.JLabel txtEmpNameReport;
     private javax.swing.JLabel txtEmpStartDateDelete;
     private javax.swing.JLabel txtEmpStartDateReport;
     private javax.swing.JLabel txtEmpStatusDelete;
@@ -2318,8 +2418,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel txtInactiveEmp;
     private javax.swing.JTextField txtLname;
     private javax.swing.JTextField txtLname3;
-    private javax.swing.JLabel txtNameEmpNameDelete;
-    private javax.swing.JLabel txtNameEmpNameReport;
     private javax.swing.JTextField txtNumber;
     private javax.swing.JTextField txtNumber1;
     private javax.swing.JTextField txtSearch1;

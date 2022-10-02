@@ -2141,7 +2141,7 @@
                                   <Component id="txtEmpEmailDelete" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtEmpAgeDelete" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtEmpIdDelete" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtNameEmpNameDelete" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtEmpNameDelete" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtEmpContactDelete" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="138" max="32767" attributes="0"/>
@@ -2159,7 +2159,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblEmpNameDelete" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtNameEmpNameDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtEmpNameDelete" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -2220,7 +2220,7 @@
                         <Property name="text" type="java.lang.String" value="Name:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="txtNameEmpNameDelete">
+                    <Component class="javax.swing.JLabel" name="txtEmpNameDelete">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Cabin Sketch" size="14" style="1"/>
@@ -2628,6 +2628,7 @@
                       <Events>
                         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtSearchReportPaneFocusGained"/>
                         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="txtSearchReportPaneFocusLost"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSearchReportPaneActionPerformed"/>
                         <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtSearchReportPaneKeyPressed"/>
                       </Events>
                     </Component>
@@ -2708,7 +2709,7 @@
                                   <Component id="txtEmpEmailReport" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtEmpAgeReport" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtEmpIdReport" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtNameEmpNameReport" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtEmpNameReport" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="txtEmpContactReport" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="138" max="32767" attributes="0"/>
@@ -2726,7 +2727,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblEmpNameReport" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txtNameEmpNameReport" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtEmpNameReport" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
@@ -2787,7 +2788,7 @@
                         <Property name="text" type="java.lang.String" value="Name:"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="txtNameEmpNameReport">
+                    <Component class="javax.swing.JLabel" name="txtEmpNameReport">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Cabin Sketch" size="14" style="1"/>
