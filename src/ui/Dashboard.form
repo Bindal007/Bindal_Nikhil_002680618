@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="autoRequestFocus" type="boolean" value="false"/>
@@ -483,9 +483,9 @@
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblEmpSec" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="lblEmpInfoIcon" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblEmpSec" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="addEmployeePanel" min="-2" pref="120" max="-2" attributes="0"/>
@@ -808,7 +808,7 @@
                                                   <Component id="txtEmpId" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="txtNumber" alignment="0" max="32767" attributes="0"/>
                                                   <Component id="lblFName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtFName" alignment="0" pref="195" max="32767" attributes="0"/>
+                                                  <Component id="txtFname" alignment="0" pref="195" max="32767" attributes="0"/>
                                                   <Component id="lblDepartment" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Component id="lblContactNo" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Component id="txtDepartment" alignment="0" pref="195" max="32767" attributes="0"/>
@@ -873,7 +873,7 @@
                                       <Group type="102" alignment="1" attributes="0">
                                           <Component id="lblFName" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txtFName" min="-2" pref="30" max="-2" attributes="0"/>
+                                          <Component id="txtFname" min="-2" pref="30" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
                                           <Component id="lblLName" min="-2" max="-2" attributes="0"/>
@@ -998,7 +998,7 @@
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="650" y="10" width="110" height="20"/>
+                          <AbsoluteConstraints x="650" y="4" width="110" height="30"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -1015,7 +1015,7 @@
                     <Property name="text" type="java.lang.String" value="First Name :"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtFName">
+                <Component class="javax.swing.JTextField" name="txtFname">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Cambria" size="12" style="1"/>
@@ -1167,7 +1167,6 @@
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtEmpId">
                   <Properties>
-                    <Property name="editable" type="boolean" value="false"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Cambria" size="12" style="1"/>
                     </Property>
@@ -1398,13 +1397,8 @@
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblEmail1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtEmail1" alignment="0" min="-2" pref="408" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                      </Group>
+                                      <Component id="lblEmail1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtEmail1" alignment="0" min="-2" pref="408" max="-2" attributes="0"/>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="lblAddress1" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -1611,7 +1605,7 @@
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="650" y="10" width="110" height="20"/>
+                          <AbsoluteConstraints x="650" y="3" width="110" height="30"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -2098,7 +2092,7 @@
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="650" y="10" width="110" height="20"/>
+                          <AbsoluteConstraints x="660" y="4" width="100" height="30"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -3188,26 +3182,6 @@
                         <Property name="useNullLayout" type="boolean" value="false"/>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JLabel" name="txtTotalEmp">
-                          <Properties>
-                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                              <Font name="Segoe UI" size="36" style="1"/>
-                            </Property>
-                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                              <Color blue="68" green="0" red="0" type="rgb"/>
-                            </Property>
-                            <Property name="horizontalAlignment" type="int" value="0"/>
-                            <Property name="text" type="java.lang.String" value="0.00"/>
-                            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                              <Color id="Default Cursor"/>
-                            </Property>
-                          </Properties>
-                          <Constraints>
-                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                              <AbsoluteConstraints x="100" y="30" width="120" height="50"/>
-                            </Constraint>
-                          </Constraints>
-                        </Component>
                         <Component class="javax.swing.JLabel" name="lblTotalEmp">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -3225,6 +3199,26 @@
                           <Constraints>
                             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                               <AbsoluteConstraints x="0" y="10" width="130" height="-1"/>
+                            </Constraint>
+                          </Constraints>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="txtTotalEmp">
+                          <Properties>
+                            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                              <Font name="Segoe UI" size="36" style="1"/>
+                            </Property>
+                            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="68" green="0" red="0" type="rgb"/>
+                            </Property>
+                            <Property name="horizontalAlignment" type="int" value="0"/>
+                            <Property name="text" type="java.lang.String" value="0.00"/>
+                            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                              <Color id="Default Cursor"/>
+                            </Property>
+                          </Properties>
+                          <Constraints>
+                            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                              <AbsoluteConstraints x="100" y="30" width="120" height="50"/>
                             </Constraint>
                           </Constraints>
                         </Component>
@@ -3355,7 +3349,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTable" name="table">
+                    <Component class="javax.swing.JTable" name="tblEmployeesData">
                       <Properties>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Segoe UI" size="12" style="1"/>
@@ -3368,8 +3362,8 @@
                             <Column editable="false" title="Designation" type="java.lang.String"/>
                             <Column editable="false" title="Department" type="java.lang.String"/>
                             <Column editable="false" title="Contact No" type="java.lang.String"/>
-                            <Column editable="false" title="Status" type="java.lang.Object"/>
-                            <Column editable="false" title="Address" type="java.lang.String"/>
+                            <Column editable="false" title="Email" type="java.lang.String"/>
+                            <Column editable="false" title="Status" type="java.lang.String"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -3442,7 +3436,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="99" green="99" red="99" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="                                                           Enter Employee Id, First or Last name to Search"/>
+                    <Property name="text" type="java.lang.String" value="                                                           Enter Employee Id, First Name or Email to Search"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
                         <MatteColorBorder bottom="2" left="1" right="1" top="1">

@@ -4,6 +4,13 @@
  */
 package ui;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import model.ContactDetails;
+import model.Employee;
+import model.EmployeeList;
+
 /**
  *
  * @author nikhilbindal
@@ -13,8 +20,12 @@ public class Dashboard extends javax.swing.JFrame {
     /**
      * Creates new form Dashboard
      */
+    boolean empStatus;
+    String empGender;
+    EmployeeList employees;
     public Dashboard() {
         initComponents();
+        this.employees = new EmployeeList();
     }
 
     /**
@@ -68,7 +79,7 @@ public class Dashboard extends javax.swing.JFrame {
         lblAddEmployeePane = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
         lblFName = new javax.swing.JLabel();
-        txtFName = new javax.swing.JTextField();
+        txtFname = new javax.swing.JTextField();
         lblLName = new javax.swing.JLabel();
         txtLname = new javax.swing.JTextField();
         lblDepartment = new javax.swing.JLabel();
@@ -190,15 +201,15 @@ public class Dashboard extends javax.swing.JFrame {
         panelEmployees = new javax.swing.JPanel();
         panelEmployeeHeader = new javax.swing.JPanel();
         TotalEmpPane = new javax.swing.JPanel();
-        txtTotalEmp = new javax.swing.JLabel();
         lblTotalEmp = new javax.swing.JLabel();
+        txtTotalEmp = new javax.swing.JLabel();
         activeEmpPane = new javax.swing.JPanel();
         txtActiveEmp = new javax.swing.JLabel();
         lblActiveEmp = new javax.swing.JLabel();
         lblInActiveEmp = new javax.swing.JLabel();
         txtInactiveEmp = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        table = new javax.swing.JTable();
+        tblEmployeesData = new javax.swing.JTable();
         txtSearch1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -492,9 +503,9 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelDashboardLayout.createSequentialGroup()
-                        .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblEmpSec)
-                            .addComponent(lblEmpInfoIcon))
+                        .addGroup(panelDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblEmpInfoIcon)
+                            .addComponent(lblEmpSec))
                         .addGap(18, 18, 18)
                         .addComponent(addEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(updateEmployeePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -528,14 +539,14 @@ public class Dashboard extends javax.swing.JFrame {
                 btnBackActionPerformed(evt);
             }
         });
-        addEmpPaneHeader.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 110, 20));
+        addEmpPaneHeader.add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 4, 110, 30));
 
         lblFName.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         lblFName.setForeground(new java.awt.Color(153, 153, 153));
         lblFName.setText("First Name :");
 
-        txtFName.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        txtFName.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(153, 153, 153)));
+        txtFname.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
+        txtFname.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(153, 153, 153)));
 
         lblLName.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         lblLName.setForeground(new java.awt.Color(153, 153, 153));
@@ -576,7 +587,6 @@ public class Dashboard extends javax.swing.JFrame {
         lblEmpId.setForeground(new java.awt.Color(153, 153, 153));
         lblEmpId.setText("Employee ID :");
 
-        txtEmpId.setEditable(false);
         txtEmpId.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         txtEmpId.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(153, 153, 153)));
 
@@ -700,7 +710,7 @@ public class Dashboard extends javax.swing.JFrame {
                                         .addComponent(txtEmpId, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(txtNumber, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(lblFName, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtFName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                                        .addComponent(txtFname, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
                                         .addComponent(lblDepartment, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(lblContactNo, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(txtDepartment, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
@@ -751,7 +761,7 @@ public class Dashboard extends javax.swing.JFrame {
                             .addGroup(addEmployeePaneLayout.createSequentialGroup()
                                 .addComponent(lblFName)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtFName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtFname, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(addEmployeePaneLayout.createSequentialGroup()
                                 .addComponent(lblLName)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -827,7 +837,7 @@ public class Dashboard extends javax.swing.JFrame {
                 btnBack1ActionPerformed(evt);
             }
         });
-        updatePanel.add(btnBack1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 110, 20));
+        updatePanel.add(btnBack1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 3, 110, 30));
 
         lblContactNo1.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         lblContactNo1.setForeground(new java.awt.Color(153, 153, 153));
@@ -984,11 +994,8 @@ public class Dashboard extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(updateEmployeePaneLayout.createSequentialGroup()
                         .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(updateEmployeePaneLayout.createSequentialGroup()
-                                .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblEmail1)
-                                    .addComponent(txtEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(lblEmail1)
+                            .addComponent(txtEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(updateEmployeePaneLayout.createSequentialGroup()
                                 .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(lblAddress1)
@@ -1129,7 +1136,7 @@ public class Dashboard extends javax.swing.JFrame {
                 btnBack2ActionPerformed(evt);
             }
         });
-        deleteEmployeeHeader.add(btnBack2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 110, 20));
+        deleteEmployeeHeader.add(btnBack2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 4, 100, 30));
 
         lblDeleteEmployeePic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Admin_Icon_125px.png"))); // NOI18N
 
@@ -1673,19 +1680,19 @@ public class Dashboard extends javax.swing.JFrame {
         TotalEmpPane.setPreferredSize(new java.awt.Dimension(170, 120));
         TotalEmpPane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtTotalEmp.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        txtTotalEmp.setForeground(new java.awt.Color(0, 0, 104));
-        txtTotalEmp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtTotalEmp.setText("0.00");
-        txtTotalEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        TotalEmpPane.add(txtTotalEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 120, 50));
-
         lblTotalEmp.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         lblTotalEmp.setForeground(new java.awt.Color(0, 0, 102));
         lblTotalEmp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTotalEmp.setText("Total Employees");
         lblTotalEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         TotalEmpPane.add(lblTotalEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 130, -1));
+
+        txtTotalEmp.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        txtTotalEmp.setForeground(new java.awt.Color(0, 0, 104));
+        txtTotalEmp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtTotalEmp.setText("0.00");
+        txtTotalEmp.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        TotalEmpPane.add(txtTotalEmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 120, 50));
 
         activeEmpPane.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         activeEmpPane.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -1745,17 +1752,17 @@ public class Dashboard extends javax.swing.JFrame {
         jScrollPane1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(218, 228, 230)));
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        table.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        table.setModel(new javax.swing.table.DefaultTableModel(
+        tblEmployeesData.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tblEmployeesData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Id", "First Name", "Last Name", "Designation", "Department", "Contact No", "Status", "Address"
+                "Id", "First Name", "Last Name", "Designation", "Department", "Contact No", "Email", "Status"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false, false
@@ -1769,17 +1776,17 @@ public class Dashboard extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        table.setFocusable(false);
-        table.setGridColor(new java.awt.Color(204, 204, 204));
-        table.setPreferredSize(new java.awt.Dimension(450, 618));
-        table.setRowHeight(25);
-        table.setSelectionBackground(new java.awt.Color(232, 57, 95));
-        table.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(table);
+        tblEmployeesData.setFocusable(false);
+        tblEmployeesData.setGridColor(new java.awt.Color(204, 204, 204));
+        tblEmployeesData.setPreferredSize(new java.awt.Dimension(450, 618));
+        tblEmployeesData.setRowHeight(25);
+        tblEmployeesData.setSelectionBackground(new java.awt.Color(232, 57, 95));
+        tblEmployeesData.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(tblEmployeesData);
 
         txtSearch1.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
         txtSearch1.setForeground(new java.awt.Color(153, 153, 153));
-        txtSearch1.setText("                                                           Enter Employee Id, First or Last name to Search");
+        txtSearch1.setText("                                                           Enter Employee Id, First Name or Email to Search");
         txtSearch1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(153, 153, 153)));
         txtSearch1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -1859,12 +1866,17 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void btnEmployeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmployeeMouseClicked
         // TODO add your handling code here:
+        txtTotalEmp.setText(String.valueOf(this.employees.getTotalEmployeesCount()));
+        txtActiveEmp.setText(String.valueOf(this.employees.getActiveEmployeesCount()));
+        txtInactiveEmp.setText(String.valueOf(this.employees.getInActiveEmployeesCount()));
         addEmployeePane.setVisible(false);
         panelDashboard.setVisible(false);
         panelEmployees.setVisible(true);
         updateEmployeePane.setVisible(false);
         deleteEmployeePane.setVisible(false);
         reportEmployeePane.setVisible(false);
+        
+        populateEmployeesDataToTable(null);
     }//GEN-LAST:event_btnEmployeeMouseClicked
 
     private void addEmployeePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addEmployeePanelMouseClicked
@@ -1924,6 +1936,36 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
+        String fname = txtFname.getText();
+        String lname = txtLname.getText();
+        int age =  Integer.parseInt(txtAge.getText());
+        boolean status = this.empStatus;
+        String gender = this.empGender;
+        String startDate = txtStartDate.getText();
+        String dept = txtDepartment.getText();
+        String designation = txtDesignation.getText();
+        int empID =  Integer.parseInt(txtEmpId.getText());
+        String profilePic = "";
+        String email = txtEmail.getText();
+        String phnNo = txtNumber.getText();
+        String address = txtAddress.getText();
+        ContactDetails contactDetail = new ContactDetails(phnNo, email, address);
+        
+        Employee employee = employees.addNewEmployees();
+        employee.setAge(age);
+        employee.setContactDetails(contactDetail);
+        employee.setDept(dept);
+        employee.setDesignation(designation);
+        employee.setEmpID(empID);
+        employee.setStatus(status);
+        employee.setStartDate(startDate);
+        employee.setProfilePic(profilePic);
+        employee.setFname(fname);
+        employee.setLname(lname);
+        employee.setGender(gender);
+        
+        JOptionPane.showMessageDialog(this, "Employee Details Added!");
+        
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -1932,16 +1974,12 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void r_ActiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_ActiveActionPerformed
         // TODO add your handling code here:
+        this.empStatus = true;
     }//GEN-LAST:event_r_ActiveActionPerformed
 
     private void r_InActiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_InActiveActionPerformed
         // TODO add your handling code here:
-//        status = "In - Active";
-//        r_Active.setSelected(false);
-//        r_InActive.setSelected(true);
-//        if (r_InActive.isSelected()) {
-//            total_inactive_count++;
-//        }
+        this.empStatus = false;
     }//GEN-LAST:event_r_InActiveActionPerformed
 
     private void txtSearchReportPaneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearchReportPaneFocusGained
@@ -1958,6 +1996,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void txtSearch1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearch1FocusGained
         // TODO add your handling code here:
+        txtSearch1.setText("");
     }//GEN-LAST:event_txtSearch1FocusGained
 
     private void txtSearch1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearch1FocusLost
@@ -1966,6 +2005,8 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void txtSearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearch1ActionPerformed
         // TODO add your handling code here:
+        String searchTxt = txtSearch1.getText();
+        populateEmployeesDataToTable(searchTxt);
     }//GEN-LAST:event_txtSearch1ActionPerformed
 
     private void txtSearch1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearch1KeyPressed
@@ -1974,14 +2015,17 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void r_maleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_maleActionPerformed
         // TODO add your handling code here:
+        this.empGender = "Male";
     }//GEN-LAST:event_r_maleActionPerformed
 
     private void r_femaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_femaleActionPerformed
         // TODO add your handling code here:
+        this.empGender = "Female";
     }//GEN-LAST:event_r_femaleActionPerformed
 
     private void r_otherGenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_otherGenderActionPerformed
         // TODO add your handling code here:
+        this.empGender = "Other";
     }//GEN-LAST:event_r_otherGenderActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
@@ -2044,6 +2088,44 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSearchDeletePaneActionPerformed
 
+    private void populateEmployeesDataToTable(String filter) {
+        DefaultTableModel model = (DefaultTableModel) tblEmployeesData.getModel();
+        model.setRowCount(0); 
+        for(Employee emp: employees.getEmployees()) {
+            ContactDetails contact = emp.getContactDetails();
+            if(filter != null && !filter.equals("") && !filter.equals(" ")) {
+                if  (
+                        (String.valueOf(emp.getEmpID()).contains(filter)) || 
+                        (emp.getFname().toLowerCase().contains(filter.toLowerCase())) || 
+                        (contact.getEmail().toLowerCase().contains(filter.toLowerCase()))
+                    ) {
+                    boolean status = emp.isStatus();
+                    Object[] row = new Object[8];
+                    row[0] = emp;
+                    row[1] = emp.getFname();
+                    row[2] = emp.getLname();
+                    row[3] = emp.getDesignation();
+                    row[4] = emp.getDept();
+                    row[5] = contact.getPhoneNumber();
+                    row[6] = contact.getEmail();
+                    row[7] = status ? "Active" : "In-Active";
+                    model.addRow(row);
+                }
+            } else {
+                boolean status = emp.isStatus();
+                Object[] row = new Object[8];
+                row[0] = emp;
+                row[1] = emp.getFname();
+                row[2] = emp.getLname();
+                row[3] = emp.getDesignation();
+                row[4] = emp.getDept();
+                row[5] = contact.getPhoneNumber();
+                row[6] = contact.getEmail();
+                row[7] = status ? "Active" : "In-Active";
+                model.addRow(row);
+            }
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -2199,7 +2281,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel reportEmployeePanel;
     private javax.swing.JSeparator sepWelcome;
     private javax.swing.JPanel sidePanel;
-    private javax.swing.JTable table;
+    private javax.swing.JTable tblEmployeesData;
     private javax.swing.JLabel txtActiveEmp;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtAddress1;
@@ -2231,8 +2313,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel txtEmpStartDateReport;
     private javax.swing.JLabel txtEmpStatusDelete;
     private javax.swing.JLabel txtEmpStatusReport;
-    private javax.swing.JTextField txtFName;
     private javax.swing.JTextField txtFName1;
+    private javax.swing.JTextField txtFname;
     private javax.swing.JLabel txtInactiveEmp;
     private javax.swing.JTextField txtLname;
     private javax.swing.JTextField txtLname3;
