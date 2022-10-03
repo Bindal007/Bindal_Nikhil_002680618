@@ -29,6 +29,7 @@ public class Dashboard extends javax.swing.JFrame {
     String empGender;
     EmployeeList employees;
     Employee currentEmployee;
+    String imagePath;
     public Dashboard() {
         initComponents();
         this.employees = new EmployeeList();
@@ -145,8 +146,9 @@ public class Dashboard extends javax.swing.JFrame {
         lblDepartment1 = new javax.swing.JLabel();
         lblDesg1 = new javax.swing.JLabel();
         txtDepartment1 = new javax.swing.JTextField();
-        lblDeleteEmployeePic1 = new javax.swing.JLabel();
         empStartDateField1 = new com.toedter.calendar.JDateChooser();
+        updateProfilePic = new javax.swing.JButton();
+        lblEmployeePicUpdate = new javax.swing.JLabel();
         deleteEmployeePane = new javax.swing.JPanel();
         deleteEmployeeHeader = new javax.swing.JPanel();
         lblDeleteEmployeePane = new javax.swing.JLabel();
@@ -1015,8 +1017,20 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        lblDeleteEmployeePic1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDeleteEmployeePic1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Admin_Icon_125px.png"))); // NOI18N
+        updateProfilePic.setBackground(new java.awt.Color(0, 0, 102));
+        updateProfilePic.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        updateProfilePic.setForeground(new java.awt.Color(255, 255, 255));
+        updateProfilePic.setText("Upload Photo");
+        updateProfilePic.setBorderPainted(false);
+        updateProfilePic.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        updateProfilePic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateProfilePicActionPerformed(evt);
+            }
+        });
+
+        lblEmployeePicUpdate.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEmployeePicUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Admin_Icon_125px.png"))); // NOI18N
 
         javax.swing.GroupLayout updateEmployeePaneLayout = new javax.swing.GroupLayout(updateEmployeePane);
         updateEmployeePane.setLayout(updateEmployeePaneLayout);
@@ -1065,9 +1079,15 @@ public class Dashboard extends javax.swing.JFrame {
                             .addComponent(empStartDateField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDeleteEmployeePic1)
-                    .addComponent(btnAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, updateEmployeePaneLayout.createSequentialGroup()
+                        .addComponent(btnAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, updateEmployeePaneLayout.createSequentialGroup()
+                        .addComponent(lblEmployeePicUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, updateEmployeePaneLayout.createSequentialGroup()
+                        .addComponent(updateProfilePic)
+                        .addGap(55, 55, 55))))
         );
         updateEmployeePaneLayout.setVerticalGroup(
             updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1079,11 +1099,11 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(lblStartDate1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtEmpId1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(empStartDateField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(13, 13, 13)
-                .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(updateEmployeePaneLayout.createSequentialGroup()
+                        .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEmpId1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(empStartDateField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
                         .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(updateEmployeePaneLayout.createSequentialGroup()
                                 .addComponent(lblFName1)
@@ -1101,30 +1121,34 @@ public class Dashboard extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtDepartment1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDesignation1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lblDeleteEmployeePic1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblContactNo1)
-                    .addComponent(lblStatus1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(r_Active1)
-                    .addComponent(r_InActive1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(updateEmployeePaneLayout.createSequentialGroup()
-                        .addComponent(lblGender1)
+                            .addComponent(txtDesignation1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblContactNo1)
+                            .addComponent(lblStatus1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(r_male1)
-                            .addComponent(r_female1)
-                            .addComponent(r_otherGender1)
-                            .addComponent(txtAge1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lblAge1))
-                .addGap(9, 9, 9)
-                .addComponent(lblEmail1)
+                            .addComponent(txtNumber1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(r_Active1)
+                            .addComponent(r_InActive1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(updateEmployeePaneLayout.createSequentialGroup()
+                                .addComponent(lblGender1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(r_male1)
+                                    .addComponent(r_female1)
+                                    .addComponent(r_otherGender1)
+                                    .addComponent(txtAge1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(lblAge1))
+                        .addGap(9, 9, 9)
+                        .addComponent(lblEmail1))
+                    .addGroup(updateEmployeePaneLayout.createSequentialGroup()
+                        .addComponent(lblEmployeePicUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(updateProfilePic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(139, 139, 139)))
                 .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(updateEmployeePaneLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -1167,6 +1191,7 @@ public class Dashboard extends javax.swing.JFrame {
         });
         deleteEmployeeHeader.add(btnBack2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 4, 100, 30));
 
+        lblDeleteEmployeePic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDeleteEmployeePic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Admin_Icon_125px.png"))); // NOI18N
 
         userInfoPanel3.setBackground(new java.awt.Color(0, 0, 104));
@@ -1397,7 +1422,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(deleteEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtSearchDeletePane)
                     .addComponent(userInfoPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblDeleteEmployeePic))
+                    .addComponent(lblDeleteEmployeePic, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(userInfoPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(56, 56, 56))
@@ -1412,13 +1437,13 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(deleteEmployeeHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addComponent(txtSearchDeletePane, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
                 .addGroup(deleteEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(userInfoPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(deleteEmployeePaneLayout.createSequentialGroup()
-                        .addComponent(lblDeleteEmployeePic)
-                        .addGap(18, 18, 18)
-                        .addComponent(userInfoPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(userInfoPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblDeleteEmployeePic, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(userInfoPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(34, Short.MAX_VALUE))
@@ -1497,8 +1522,9 @@ public class Dashboard extends javax.swing.JFrame {
 
         reportEmployeePane.add(empReportPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 769, -1));
 
+        lblReportEmployeePic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblReportEmployeePic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Admin_Icon_125px.png"))); // NOI18N
-        reportEmployeePane.add(lblReportEmployeePic, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, -1, -1));
+        reportEmployeePane.add(lblReportEmployeePic, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 180, 150));
 
         userInfoPanel1.setBackground(new java.awt.Color(0, 0, 104));
         userInfoPanel1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 3, 2, new java.awt.Color(153, 153, 153)));
@@ -1997,6 +2023,7 @@ public class Dashboard extends javax.swing.JFrame {
         employee.setFname(fname);
         employee.setLname(lname);
         employee.setGender(gender);
+        employee.setProfilePic(this.imagePath);
         
         JOptionPane.showMessageDialog(this, "Employee Details Added!");
         
@@ -2042,6 +2069,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void txtSearchReportPaneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearchReportPaneFocusGained
         // TODO add your handling code here:
+        txtSearchReportPane.setText("");
     }//GEN-LAST:event_txtSearchReportPaneFocusGained
 
     private void txtSearchReportPaneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearchReportPaneFocusLost
@@ -2053,7 +2081,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSearchReportPaneKeyPressed
 
     private void txtSearch1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearch1FocusGained
-        // TODO add your handling code here:
+         // TODO add your handling code here:
         txtSearch1.setText("");
     }//GEN-LAST:event_txtSearch1FocusGained
 
@@ -2132,6 +2160,7 @@ public class Dashboard extends javax.swing.JFrame {
         this.currentEmployee.setFname(fname);
         this.currentEmployee.setLname(lname);
         this.currentEmployee.setGender(gender);
+        this.currentEmployee.setProfilePic(this.imagePath);
         
         JOptionPane.showMessageDialog(this, "Employee Details Updated!");
         
@@ -2227,6 +2256,7 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void txtSearchDeletePaneFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearchDeletePaneFocusGained
         // TODO add your handling code here:
+        txtSearchDeletePane.setText("");
     }//GEN-LAST:event_txtSearchDeletePaneFocusGained
 
     private void txtSearchDeletePaneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearchDeletePaneFocusLost
@@ -2289,7 +2319,9 @@ public class Dashboard extends javax.swing.JFrame {
                     txtEmpDesgnDelete.setText(emp.getDesignation());
                     txtEmpStartDateDelete.setText((emp.startDateString(date)));
                     txtEmpStatusDelete.setText(status);
-                    
+                    String selectedImagePath = emp.getProfilePic();
+                    ImageIcon ii = new ImageIcon(selectedImagePath);
+                    lblDeleteEmployeePic.setIcon(ii);
                     
                 }
             }
@@ -2319,6 +2351,9 @@ public class Dashboard extends javax.swing.JFrame {
                     txtEmpDesgnReport.setText(emp.getDesignation());
                     txtEmpStartDateReport.setText(emp.startDateString(date));
                     txtEmpStatusReport.setText(status);
+                    String selectedImagePath = emp.getProfilePic();
+                    ImageIcon ii = new ImageIcon(selectedImagePath);
+                    lblReportEmployeePic.setIcon(ii);
                 }
             }
         }
@@ -2377,7 +2412,10 @@ public class Dashboard extends javax.swing.JFrame {
                     
                     txtDepartment1.setText(emp.getDept());
                     txtDesignation1.setText(emp.getDesignation());
-                    empStartDateField.setDate(date.getDate());
+                    empStartDateField1.setDate(date.getDate());
+                    String selectedImagePath = emp.getProfilePic();
+                    ImageIcon ii = new ImageIcon(selectedImagePath);
+                    lblEmployeePicUpdate.setIcon(ii);
                     
                     
                 }
@@ -2399,13 +2437,30 @@ public class Dashboard extends javax.swing.JFrame {
             File selectedImageFile = browseImageFile.getSelectedFile();
             String selectedImagePath = selectedImageFile.getAbsolutePath();
             JOptionPane.showMessageDialog(null, selectedImagePath);
-            
+            this.imagePath = selectedImagePath;
             // display image on label
             ImageIcon ii = new ImageIcon(selectedImagePath);
             lblEmployeePic.setIcon(ii);
         }
         
     }//GEN-LAST:event_btnAdd2ActionPerformed
+
+    private void updateProfilePicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateProfilePicActionPerformed
+        // TODO add your handling code here:
+        JFileChooser browseImageFile = new JFileChooser();
+        FileNameExtensionFilter fnef = new FileNameExtensionFilter("IMAGES", "png", "jpg", "jpeg", "gif");
+        browseImageFile.addChoosableFileFilter(fnef);
+        int showOpenDialogue = browseImageFile.showOpenDialog(null);
+        if(showOpenDialogue == JFileChooser.APPROVE_OPTION) {
+            File selectedImageFile = browseImageFile.getSelectedFile();
+            String selectedImagePath = selectedImageFile.getAbsolutePath();
+            JOptionPane.showMessageDialog(null, selectedImagePath);
+            this.imagePath = selectedImagePath;
+            // display image on label
+            ImageIcon ii = new ImageIcon(selectedImagePath);
+            lblEmployeePicUpdate.setIcon(ii);
+        }
+    }//GEN-LAST:event_updateProfilePicActionPerformed
 
     private void populateEmployeesDataToTable(String filter) {
         DefaultTableModel model = (DefaultTableModel) tblEmployeesData.getModel();
@@ -2526,7 +2581,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel lblDeleteEmployee1;
     private javax.swing.JLabel lblDeleteEmployeePane;
     private javax.swing.JLabel lblDeleteEmployeePic;
-    private javax.swing.JLabel lblDeleteEmployeePic1;
     private javax.swing.JLabel lblDepartment;
     private javax.swing.JLabel lblDepartment1;
     private javax.swing.JLabel lblDesg;
@@ -2561,6 +2615,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel lblEmpStatusReport;
     private javax.swing.JLabel lblEmployee;
     private javax.swing.JLabel lblEmployeePic;
+    private javax.swing.JLabel lblEmployeePicUpdate;
     private javax.swing.JLabel lblFName;
     private javax.swing.JLabel lblFName1;
     private javax.swing.JLabel lblGender;
@@ -2651,6 +2706,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel updateEmployeePane;
     private javax.swing.JPanel updateEmployeePanel;
     private javax.swing.JPanel updatePanel;
+    private javax.swing.JButton updateProfilePic;
     private javax.swing.JPanel userInfoPanel1;
     private javax.swing.JPanel userInfoPanel2;
     private javax.swing.JPanel userInfoPanel3;
