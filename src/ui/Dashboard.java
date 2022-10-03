@@ -4,7 +4,13 @@
  */
 package ui;
 
+import com.toedter.calendar.JDateChooser;
+import java.io.File;
+import java.util.Date;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import model.ContactDetails;
 import model.Employee;
@@ -97,7 +103,6 @@ public class Dashboard extends javax.swing.JFrame {
         r_InActive = new javax.swing.JRadioButton();
         lblStatus = new javax.swing.JLabel();
         lblStartDate = new javax.swing.JLabel();
-        txtStartDate = new javax.swing.JTextField();
         lblGender = new javax.swing.JLabel();
         r_male = new javax.swing.JRadioButton();
         r_female = new javax.swing.JRadioButton();
@@ -106,7 +111,9 @@ public class Dashboard extends javax.swing.JFrame {
         txtEmail = new javax.swing.JTextField();
         txtAge = new javax.swing.JTextField();
         lblAge = new javax.swing.JLabel();
-        lblDeleteEmployeePic2 = new javax.swing.JLabel();
+        lblEmployeePic = new javax.swing.JLabel();
+        empStartDateField = new com.toedter.calendar.JDateChooser();
+        btnAdd2 = new javax.swing.JButton();
         updateEmployeePane = new javax.swing.JPanel();
         updatePanel = new javax.swing.JPanel();
         lblUpdateEmployeePane = new javax.swing.JLabel();
@@ -120,7 +127,6 @@ public class Dashboard extends javax.swing.JFrame {
         lblEmpId1 = new javax.swing.JLabel();
         txtEmpId1 = new javax.swing.JTextField();
         btnAdd1 = new javax.swing.JButton();
-        txtStartDate1 = new javax.swing.JTextField();
         r_male1 = new javax.swing.JRadioButton();
         r_Active1 = new javax.swing.JRadioButton();
         r_InActive1 = new javax.swing.JRadioButton();
@@ -140,6 +146,7 @@ public class Dashboard extends javax.swing.JFrame {
         lblDesg1 = new javax.swing.JLabel();
         txtDepartment1 = new javax.swing.JTextField();
         lblDeleteEmployeePic1 = new javax.swing.JLabel();
+        empStartDateField1 = new com.toedter.calendar.JDateChooser();
         deleteEmployeePane = new javax.swing.JPanel();
         deleteEmployeeHeader = new javax.swing.JPanel();
         lblDeleteEmployeePane = new javax.swing.JLabel();
@@ -628,9 +635,6 @@ public class Dashboard extends javax.swing.JFrame {
         lblStartDate.setForeground(new java.awt.Color(153, 153, 153));
         lblStartDate.setText("Start Date :");
 
-        txtStartDate.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        txtStartDate.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(153, 153, 153)));
-
         lblGender.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         lblGender.setForeground(new java.awt.Color(153, 153, 153));
         lblGender.setText("Gender");
@@ -681,7 +685,20 @@ public class Dashboard extends javax.swing.JFrame {
         lblAge.setForeground(new java.awt.Color(153, 153, 153));
         lblAge.setText("Age :");
 
-        lblDeleteEmployeePic2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Admin_Icon_125px.png"))); // NOI18N
+        lblEmployeePic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblEmployeePic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Admin_Icon_125px.png"))); // NOI18N
+
+        btnAdd2.setBackground(new java.awt.Color(0, 0, 102));
+        btnAdd2.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
+        btnAdd2.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdd2.setText("Upload Photo");
+        btnAdd2.setBorderPainted(false);
+        btnAdd2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAdd2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdd2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout addEmployeePaneLayout = new javax.swing.GroupLayout(addEmployeePane);
         addEmployeePane.setLayout(addEmployeePaneLayout);
@@ -696,51 +713,55 @@ public class Dashboard extends javax.swing.JFrame {
                             .addComponent(lblEmail)
                             .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(addEmployeePaneLayout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addEmployeePaneLayout.createSequentialGroup()
+                        .addComponent(lblAddress)
+                        .addGap(69, 683, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addEmployeePaneLayout.createSequentialGroup()
                         .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(22, 22, 22))
                     .addGroup(addEmployeePaneLayout.createSequentialGroup()
                         .addGroup(addEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAddress)
+                            .addGroup(addEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtEmpId, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtNumber, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblFName, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtFname, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                                .addComponent(lblDepartment, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblContactNo, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtDepartment, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
+                            .addComponent(lblEmpId)
+                            .addComponent(lblGender)
                             .addGroup(addEmployeePaneLayout.createSequentialGroup()
-                                .addGroup(addEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(addEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txtEmpId, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtNumber, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblFName, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtFname, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
-                                        .addComponent(lblDepartment, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(lblContactNo, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtDepartment, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE))
-                                    .addComponent(lblEmpId)
-                                    .addComponent(lblGender)
-                                    .addGroup(addEmployeePaneLayout.createSequentialGroup()
-                                        .addComponent(r_male)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(r_female)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(r_otherGender)))
+                                .addComponent(r_male)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(addEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(addEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(lblStartDate)
-                                        .addComponent(lblStatus)
-                                        .addComponent(lblDesg)
-                                        .addComponent(lblLName)
-                                        .addGroup(addEmployeePaneLayout.createSequentialGroup()
-                                            .addComponent(r_Active)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(r_InActive))
-                                        .addComponent(txtDesignation)
-                                        .addComponent(txtStartDate)
-                                        .addComponent(txtLname, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(lblAge)
-                                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(r_female)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(r_otherGender)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(addEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblStartDate)
+                            .addComponent(lblStatus)
+                            .addComponent(lblDesg)
+                            .addComponent(lblLName)
+                            .addGroup(addEmployeePaneLayout.createSequentialGroup()
+                                .addComponent(r_Active)
+                                .addGap(18, 18, 18)
+                                .addComponent(r_InActive))
+                            .addComponent(txtDesignation)
+                            .addComponent(txtLname, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                            .addComponent(lblAge)
+                            .addComponent(txtAge, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                            .addComponent(empStartDateField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblDeleteEmployeePic2)
-                        .addGap(69, 69, 69))))
+                        .addGroup(addEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addEmployeePaneLayout.createSequentialGroup()
+                                .addComponent(lblEmployeePic, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(38, 38, 38))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, addEmployeePaneLayout.createSequentialGroup()
+                                .addComponent(btnAdd2)
+                                .addGap(59, 59, 59))))))
         );
         addEmployeePaneLayout.setVerticalGroup(
             addEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -751,12 +772,12 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(lblEmpId)
                     .addComponent(lblStartDate))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(addEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEmpId, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addGroup(addEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(addEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(addEmployeePaneLayout.createSequentialGroup()
+                        .addGroup(addEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtEmpId, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                            .addComponent(empStartDateField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
                         .addGroup(addEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(addEmployeePaneLayout.createSequentialGroup()
                                 .addComponent(lblFName)
@@ -774,12 +795,15 @@ public class Dashboard extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(addEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDesignation, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lblDeleteEmployeePic2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(addEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblContactNo)
-                    .addComponent(lblStatus))
+                            .addComponent(txtDesignation, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(addEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblContactNo)
+                            .addComponent(lblStatus)))
+                    .addGroup(addEmployeePaneLayout.createSequentialGroup()
+                        .addComponent(lblEmployeePic, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAdd2, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(addEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -889,9 +913,6 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
-        txtStartDate1.setFont(new java.awt.Font("Cambria", 1, 12)); // NOI18N
-        txtStartDate1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(153, 153, 153)));
-
         r_male1.setFont(new java.awt.Font("Cambria", 1, 14)); // NOI18N
         r_male1.setText("Male");
         r_male1.setContentAreaFilled(false);
@@ -994,6 +1015,7 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
+        lblDeleteEmployeePic1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDeleteEmployeePic1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Admin_Icon_125px.png"))); // NOI18N
 
         javax.swing.GroupLayout updateEmployeePaneLayout = new javax.swing.GroupLayout(updateEmployeePane);
@@ -1027,21 +1049,20 @@ public class Dashboard extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(r_otherGender1)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lblStartDate1)
-                                .addComponent(lblStatus1)
-                                .addComponent(lblDesg1)
-                                .addComponent(lblLName1)
-                                .addGroup(updateEmployeePaneLayout.createSequentialGroup()
-                                    .addComponent(r_Active1)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(r_InActive1))
-                                .addComponent(txtDesignation1)
-                                .addComponent(txtStartDate1)
-                                .addComponent(txtLname3, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblStartDate1)
+                            .addComponent(lblStatus1)
+                            .addComponent(lblDesg1)
+                            .addComponent(lblLName1)
+                            .addGroup(updateEmployeePaneLayout.createSequentialGroup()
+                                .addComponent(r_Active1)
+                                .addGap(18, 18, 18)
+                                .addComponent(r_InActive1))
+                            .addComponent(txtDesignation1)
+                            .addComponent(txtLname3, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
                             .addComponent(lblAge1)
-                            .addComponent(txtAge1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtAge1, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                            .addComponent(empStartDateField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblDeleteEmployeePic1)
@@ -1058,8 +1079,8 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(lblStartDate1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtStartDate1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtEmpId1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEmpId1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(empStartDateField1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(13, 13, 13)
                 .addGroup(updateEmployeePaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(updateEmployeePaneLayout.createSequentialGroup()
@@ -1954,7 +1975,7 @@ public class Dashboard extends javax.swing.JFrame {
         int age =  txtAge.getText().isEmpty() ? null : Integer.parseInt(txtAge.getText());
         boolean status = this.empStatus;
         String gender = this.empGender;
-        String startDate = txtStartDate.getText();
+        JDateChooser startDate = empStartDateField;
         String dept = txtDepartment.getText();
         String designation = txtDesignation.getText();
         int empID =  txtEmpId.getText().isEmpty() ? null : Integer.parseInt(txtEmpId.getText());
@@ -1993,7 +2014,7 @@ public class Dashboard extends javax.swing.JFrame {
         r_otherGender.setSelected(false);
         txtDepartment.setText("");
         txtDesignation.setText("");
-        txtStartDate.setText("");
+        empStartDateField.setDate(new Date());
         
     }//GEN-LAST:event_btnAddActionPerformed
 
@@ -2090,7 +2111,7 @@ public class Dashboard extends javax.swing.JFrame {
         int age =  txtAge1.getText().isEmpty() ? null : Integer.parseInt(txtAge1.getText());
         boolean status = this.empStatus;
         String gender = this.empGender;
-        String startDate = txtStartDate1.getText();
+        JDateChooser startDate = empStartDateField1;
         String dept = txtDepartment1.getText();
         String designation = txtDesignation1.getText();
         int empID =  txtEmpId1.getText().isEmpty() ? null : Integer.parseInt(txtEmpId1.getText());
@@ -2128,7 +2149,7 @@ public class Dashboard extends javax.swing.JFrame {
         r_otherGender1.setSelected(false);
         txtDepartment1.setText("");
         txtDesignation1.setText("");
-        txtStartDate1.setText("");
+        empStartDateField1.setDate(new Date());
     }//GEN-LAST:event_btnAdd1ActionPerformed
 
     private void r_male1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_r_male1ActionPerformed
@@ -2191,7 +2212,7 @@ public class Dashboard extends javax.swing.JFrame {
         r_otherGender1.setSelected(false);
         txtDepartment1.setText("");
         txtDesignation1.setText("");
-        txtStartDate1.setText("");
+        empStartDateField1.setDate(new Date());
     }//GEN-LAST:event_btnBack1ActionPerformed
 
     private void btnBack2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack2ActionPerformed
@@ -2256,6 +2277,7 @@ public class Dashboard extends javax.swing.JFrame {
                     this.currentEmployee = emp;
                     ContactDetails contactDetail = emp.getContactDetails();
                     String status = emp.isStatus() ? "Active" : "In-Active";
+                    JDateChooser date = emp.getStartDate();
                     txtEmpIdDelete.setText(searchTxt);
                     txtEmpNameDelete.setText(emp.getFname() + " " + emp.getLname());
                     txtEmpAgeDelete.setText(String.valueOf(emp.getAge()));
@@ -2265,7 +2287,7 @@ public class Dashboard extends javax.swing.JFrame {
                     
                     txtEmpDeptDelete.setText(emp.getDept());
                     txtEmpDesgnDelete.setText(emp.getDesignation());
-                    txtEmpStartDateDelete.setText(emp.getStartDate());
+                    txtEmpStartDateDelete.setText((emp.startDateString(date)));
                     txtEmpStatusDelete.setText(status);
                     
                     
@@ -2284,6 +2306,8 @@ public class Dashboard extends javax.swing.JFrame {
                 if(String.valueOf(emp.getEmpID()).equals(searchTxt)) {
                     ContactDetails contactDetail = emp.getContactDetails();
                     String status = emp.isStatus() ? "Active" : "In-Active";
+                    JDateChooser date = emp.getStartDate();
+                    System.out.println(date + "");
                     txtEmpIdReport.setText(searchTxt);
                     txtEmpNameReport.setText(emp.getFname() + " " + emp.getLname());
                     txtEmpAgeReport.setText(String.valueOf(emp.getAge()));
@@ -2293,7 +2317,7 @@ public class Dashboard extends javax.swing.JFrame {
                     
                     txtEmpDeptReport.setText(emp.getDept());
                     txtEmpDesgnReport.setText(emp.getDesignation());
-                    txtEmpStartDateReport.setText(emp.getStartDate());
+                    txtEmpStartDateReport.setText(emp.startDateString(date));
                     txtEmpStatusReport.setText(status);
                 }
             }
@@ -2318,7 +2342,7 @@ public class Dashboard extends javax.swing.JFrame {
 
             txtDepartment1.setText("");
             txtDesignation1.setText("");
-            txtStartDate1.setText("");
+            empStartDateField1.setDate(null);
         } else {
             for(Employee emp : employees.getEmployees()) {
                 if(String.valueOf(emp.getEmpID()).equals(searchTxt)) {
@@ -2341,6 +2365,8 @@ public class Dashboard extends javax.swing.JFrame {
                         r_otherGender1.setSelected(true);
                     }
                     
+                    JDateChooser date = emp.getStartDate();
+                    
                     txtEmpIdDelete.setText(searchTxt);
                     txtFName1.setText(emp.getFname()); 
                     txtLname3.setText(emp.getLname());
@@ -2351,7 +2377,7 @@ public class Dashboard extends javax.swing.JFrame {
                     
                     txtDepartment1.setText(emp.getDept());
                     txtDesignation1.setText(emp.getDesignation());
-                    txtStartDate1.setText(emp.getStartDate());
+                    empStartDateField.setDate(date.getDate());
                     
                     
                 }
@@ -2362,6 +2388,24 @@ public class Dashboard extends javax.swing.JFrame {
     private void txtDepartment1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDepartment1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDepartment1ActionPerformed
+
+    private void btnAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd2ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser browseImageFile = new JFileChooser();
+        FileNameExtensionFilter fnef = new FileNameExtensionFilter("IMAGES", "png", "jpg", "jpeg", "gif");
+        browseImageFile.addChoosableFileFilter(fnef);
+        int showOpenDialogue = browseImageFile.showOpenDialog(null);
+        if(showOpenDialogue == JFileChooser.APPROVE_OPTION) {
+            File selectedImageFile = browseImageFile.getSelectedFile();
+            String selectedImagePath = selectedImageFile.getAbsolutePath();
+            JOptionPane.showMessageDialog(null, selectedImagePath);
+            
+            // display image on label
+            ImageIcon ii = new ImageIcon(selectedImagePath);
+            lblEmployeePic.setIcon(ii);
+        }
+        
+    }//GEN-LAST:event_btnAdd2ActionPerformed
 
     private void populateEmployeesDataToTable(String filter) {
         DefaultTableModel model = (DefaultTableModel) tblEmployeesData.getModel();
@@ -2444,6 +2488,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel addEmployeePanel;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAdd1;
+    private javax.swing.JButton btnAdd2;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnBack1;
     private javax.swing.JButton btnBack2;
@@ -2458,6 +2503,8 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel deleteEmployeePane;
     private javax.swing.JPanel deleteEmployeePanel;
     private javax.swing.JPanel empReportPanel;
+    private com.toedter.calendar.JDateChooser empStartDateField;
+    private com.toedter.calendar.JDateChooser empStartDateField1;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAboutUS;
@@ -2480,7 +2527,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel lblDeleteEmployeePane;
     private javax.swing.JLabel lblDeleteEmployeePic;
     private javax.swing.JLabel lblDeleteEmployeePic1;
-    private javax.swing.JLabel lblDeleteEmployeePic2;
     private javax.swing.JLabel lblDepartment;
     private javax.swing.JLabel lblDepartment1;
     private javax.swing.JLabel lblDesg;
@@ -2514,6 +2560,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel lblEmpStatusDelete;
     private javax.swing.JLabel lblEmpStatusReport;
     private javax.swing.JLabel lblEmployee;
+    private javax.swing.JLabel lblEmployeePic;
     private javax.swing.JLabel lblFName;
     private javax.swing.JLabel lblFName1;
     private javax.swing.JLabel lblGender;
@@ -2600,8 +2647,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JTextField txtSearch1;
     private javax.swing.JTextField txtSearchDeletePane;
     private javax.swing.JTextField txtSearchReportPane;
-    private javax.swing.JTextField txtStartDate;
-    private javax.swing.JTextField txtStartDate1;
     private javax.swing.JLabel txtTotalEmp;
     private javax.swing.JPanel updateEmployeePane;
     private javax.swing.JPanel updateEmployeePanel;

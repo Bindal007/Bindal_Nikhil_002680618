@@ -793,7 +793,11 @@
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
-                              <Group type="102" alignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="lblAddress" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="69" pref="683" max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
                                   <Component id="txtAddress" min="-2" pref="408" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Component id="btnAdd" min="-2" pref="172" max="-2" attributes="0"/>
@@ -801,52 +805,53 @@
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblAddress" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="txtEmpId" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="txtNumber" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="lblFName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtFname" alignment="0" pref="195" max="32767" attributes="0"/>
-                                                  <Component id="lblDepartment" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblContactNo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="txtDepartment" alignment="0" pref="195" max="32767" attributes="0"/>
-                                              </Group>
-                                              <Component id="lblEmpId" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lblGender" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="r_male" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="r_female" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="r_otherGender" min="-2" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
+                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="txtEmpId" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtNumber" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lblFName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtFname" alignment="0" pref="195" max="32767" attributes="0"/>
+                                          <Component id="lblDepartment" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblContactNo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtDepartment" alignment="0" pref="195" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="lblEmpId" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblGender" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="r_male" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="lblStartDate" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblStatus" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblDesg" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Component id="lblLName" alignment="0" min="-2" max="-2" attributes="0"/>
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="r_Active" min="-2" max="-2" attributes="0"/>
-                                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                      <Component id="r_InActive" min="-2" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Component id="txtDesignation" max="32767" attributes="0"/>
-                                                  <Component id="txtStartDate" max="32767" attributes="0"/>
-                                                  <Component id="txtLname" min="-2" pref="195" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Component id="lblAge" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="txtAge" min="-2" pref="195" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="r_female" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="r_otherGender" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lblStartDate" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblStatus" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblDesg" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblLName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="r_Active" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="r_InActive" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="txtDesignation" max="32767" attributes="0"/>
+                                      <Component id="txtLname" pref="195" max="32767" attributes="0"/>
+                                      <Component id="lblAge" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtAge" pref="195" max="32767" attributes="0"/>
+                                      <Component id="empStartDateField" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="lblDeleteEmployeePic2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="lblEmployeePic" min="-2" pref="172" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="1" attributes="0">
+                                          <Component id="btnAdd2" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -862,13 +867,13 @@
                               <Component id="lblStartDate" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtStartDate" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="txtEmpId" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="txtEmpId" pref="30" max="32767" attributes="0"/>
+                                      <Component id="empStartDateField" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Group type="102" alignment="1" attributes="0">
                                           <Component id="lblFName" min="-2" max="-2" attributes="0"/>
@@ -892,13 +897,17 @@
                                       <Component id="txtDepartment" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                       <Component id="txtDesignation" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblContactNo" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <Component id="lblDeleteEmployeePic2" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblContactNo" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="lblEmployeePic" min="-2" pref="154" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="btnAdd2" pref="25" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -1246,20 +1255,6 @@
                     <Property name="text" type="java.lang.String" value="Start Date :"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtStartDate">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Cambria" size="12" style="1"/>
-                    </Property>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
-                        <MatteColorBorder bottom="2" left="1" right="1" top="1">
-                          <Color PropertyName="color" blue="99" green="99" red="99" type="rgb"/>
-                        </MatteColorBorder>
-                      </Border>
-                    </Property>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JLabel" name="lblGender">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1360,12 +1355,36 @@
                     <Property name="text" type="java.lang.String" value="Age :"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblDeleteEmployeePic2">
+                <Component class="javax.swing.JLabel" name="lblEmployeePic">
                   <Properties>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/icons/Admin_Icon_125px.png"/>
                     </Property>
                   </Properties>
+                </Component>
+                <Component class="com.toedter.calendar.JDateChooser" name="empStartDateField">
+                </Component>
+                <Component class="javax.swing.JButton" name="btnAdd2">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="66" green="0" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Cambria" size="14" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Upload Photo"/>
+                    <Property name="borderPainted" type="boolean" value="false"/>
+                    <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+                      <Color id="Hand Cursor"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdd2ActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -1417,23 +1436,21 @@
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="lblStartDate1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblStatus1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblDesg1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblLName1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="r_Active1" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="r_InActive1" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Component id="txtDesignation1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtStartDate1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtLname3" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="lblStartDate1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblStatus1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblDesg1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblLName1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="r_Active1" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="r_InActive1" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="txtDesignation1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtLname3" alignment="0" pref="195" max="32767" attributes="0"/>
                                       <Component id="lblAge1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtAge1" alignment="0" min="-2" pref="195" max="-2" attributes="0"/>
+                                      <Component id="txtAge1" alignment="0" pref="195" max="32767" attributes="0"/>
+                                      <Component id="empStartDateField1" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -1457,8 +1474,8 @@
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtStartDate1" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="txtEmpId1" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="txtEmpId1" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="empStartDateField1" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -1724,20 +1741,6 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAdd1ActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtStartDate1">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Cambria" size="12" style="1"/>
-                    </Property>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
-                        <MatteColorBorder bottom="2" left="1" right="1" top="1">
-                          <Color PropertyName="color" blue="99" green="99" red="99" type="rgb"/>
-                        </MatteColorBorder>
-                      </Border>
-                    </Property>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JRadioButton" name="r_male1">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -1964,10 +1967,13 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblDeleteEmployeePic1">
                   <Properties>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
                       <Image iconType="3" name="/icons/Admin_Icon_125px.png"/>
                     </Property>
                   </Properties>
+                </Component>
+                <Component class="com.toedter.calendar.JDateChooser" name="empStartDateField1">
                 </Component>
               </SubComponents>
             </Container>

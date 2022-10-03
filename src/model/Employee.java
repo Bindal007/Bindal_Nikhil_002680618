@@ -4,6 +4,10 @@
  */
 package model;
 
+import com.toedter.calendar.JDateChooser;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author nikhilbindal
@@ -14,7 +18,7 @@ public class Employee {
     private int age;
     private boolean status;
     private String gender;
-    private String startDate;
+    private JDateChooser startDate;
     private String dept;
     private String designation;
     private int empID;
@@ -61,12 +65,19 @@ public class Employee {
         this.gender = gender;
     }
 
-    public String getStartDate() {
+    public JDateChooser getStartDate() {
         return startDate;
     }
+    
+    public String startDateString(JDateChooser date) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        String formattedDate = sdf.format(date.getDate());
+        return formattedDate;
+    }
 
-    public void setStartDate(String startDate) {
+    public void setStartDate(JDateChooser startDate) {
         this.startDate = startDate;
+        System.out.println(startDateString(startDate));
     }
 
     public String getDept() {
