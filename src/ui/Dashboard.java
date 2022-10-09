@@ -1996,6 +1996,9 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
+        if(!ValidationForCreateEmployee()) {
+            return;
+        }
         String fname = txtFname.getText();
         String lname = txtLname.getText();
         int age =  txtAge.getText().isEmpty() ? null : Integer.parseInt(txtAge.getText());
@@ -2134,6 +2137,9 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
         // TODO add your handling code here:
+        if(!ValidationForUpdateEmployee()) {
+            return;
+        }
         String fname = txtFName1.getText();
         String lname = txtLname3.getText();
         int age =  txtAge1.getText().isEmpty() ? null : Integer.parseInt(txtAge1.getText());
@@ -2499,6 +2505,70 @@ public class Dashboard extends javax.swing.JFrame {
                 model.addRow(row);
             }
         }
+    }
+    
+    private boolean ValidationForCreateEmployee(){
+        if(!(txtFname.getText().matches("[a-zA-Z0-9]{2,50}")) ) {
+          JOptionPane.showMessageDialog(this, "Please enter a valid First Name" );
+          return false;
+        }
+        if(!(txtLname.getText().matches("[a-zA-Z0-9]{2,50}")) ) {
+          JOptionPane.showMessageDialog(this, "Please enter a valid Last Name" );
+          return false;
+        }
+        if(!(txtEmpId.getText().matches("[0-9]{5}")) ) {
+           JOptionPane.showMessageDialog(this, "Please enter a valid Employee ID" );
+            return false;
+        }
+        if(!(txtAge.getText().matches("[2-5][0-9]"))) {
+          JOptionPane.showMessageDialog(this, "Please enter a valid Age" );
+          return false;
+        }
+        if(this.empGender == null || this.empGender.isEmpty() || this.empGender.isBlank()) {
+          JOptionPane.showMessageDialog(this, "Please enter a valid Gender" );
+          return false;
+        }
+        if(!(txtNumber.getText().matches("[0-9]{10}")) ) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid Phone Number" );
+          return false;
+        }
+        if(!(txtEmail.getText().matches("^(.+)@(\\S+)$") )) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid Email" );
+          return false;
+        }
+        return true;
+    }
+    
+    private boolean ValidationForUpdateEmployee(){
+        if(!(txtFName1.getText().matches("[a-zA-Z0-9]{2,50}")) ) {
+          JOptionPane.showMessageDialog(this, "Please enter a valid First Name" );
+          return false;
+        }
+        if(!(txtLname3.getText().matches("[a-zA-Z0-9]{2,50}")) ) {
+          JOptionPane.showMessageDialog(this, "Please enter a valid Last Name" );
+          return false;
+        }
+        if(!(txtEmpId1.getText().matches("[0-9]{5}")) ) {
+           JOptionPane.showMessageDialog(this, "Please enter a valid Employee ID" );
+            return false;
+        }
+        if(!(txtAge1.getText().matches("[2-5][0-9]"))) {
+          JOptionPane.showMessageDialog(this, "Please enter a valid Age" );
+          return false;
+        }
+        if(this.empGender == null || this.empGender.isEmpty() || this.empGender.isBlank()) {
+          JOptionPane.showMessageDialog(this, "Please enter a valid Gender" );
+          return false;
+        }
+        if(!(txtNumber1.getText().matches("[0-9]{10}")) ) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid Phone Number" );
+          return false;
+        }
+        if(!(txtEmail1.getText().matches("^(.+)@(\\S+)$") )) {
+            JOptionPane.showMessageDialog(this, "Please enter a valid Email" );
+          return false;
+        }
+        return true;
     }
     /**
      * @param args the command line arguments
