@@ -24,6 +24,18 @@ public class PersonList {
     }
     
     public ArrayList<Person> getPersonList() {
-        return this.personList;
+        return personList;
+    }
+    
+    public void deletePerson(Person person) {
+        personList.remove(person);
+    }
+
+    public void setPersonList(ArrayList<Person> personList) {
+        this.personList = personList;
+    }
+    
+    public int getTotalPersonsCount() {
+        return this.personList.size();
     }
 }

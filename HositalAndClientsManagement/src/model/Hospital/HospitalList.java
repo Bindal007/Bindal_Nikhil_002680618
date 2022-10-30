@@ -4,10 +4,21 @@
  */
 package model.Hospital;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author nikhilbindal
  */
 public class HospitalList {
+    private ArrayList<Hospital> hospitalList;
+
+    public ArrayList<Hospital> getHospitalList() {
+        return hospitalList;
+    }
+
+    public void setHospitalList(ArrayList<Hospital> hospitalList) {
+        this.hospitalList = hospitalList;
+    }
     
 }

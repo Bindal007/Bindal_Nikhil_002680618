@@ -4,6 +4,8 @@
  */
 package model.Users;
 
+import model.City.Address;
+
 /**
  *
  * @author nikhilbindal
@@ -11,13 +13,11 @@ package model.Users;
 public class ContactDetails {
 
     private long phoneNumber;
-    private String email;
-    private String address;
+    private Address address;
     
 
-    public ContactDetails(long phoneNumber, String email, String address) {
+    public ContactDetails(long phoneNumber, Address address) {
         this.phoneNumber = phoneNumber;
-        this.email = email;
         this.address = address;
     }
     
@@ -31,19 +31,11 @@ public class ContactDetails {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 }

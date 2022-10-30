@@ -4,6 +4,9 @@
  */
 package model.Users;
 
+import java.util.ArrayList;
+import model.Hospital.Hospital;
+
 /**
  *
  * @author nikhilbindal
@@ -11,11 +14,9 @@ package model.Users;
 public class Patient extends Person {
     private String illness;
     private String symptoms;
-
-    public Patient(String illness, String symptoms) {
-        this.illness = illness;
-        this.symptoms = symptoms;
-    }
+    private long patientId;
+    private ArrayList<PatientLastEncounter> encounterList;
+    private Hospital hospital;
 
     public String getIllness() {
         return illness;
@@ -32,5 +33,31 @@ public class Patient extends Person {
     public void setSymptoms(String symptoms) {
         this.symptoms = symptoms;
     }
+
+    public long getPatientId() {
+        return patientId;
+    }
+
+    public void setPatientId(long patientId) {
+        this.patientId = patientId;
+    }
+
+    public ArrayList<PatientLastEncounter> getEncounterList() {
+        return encounterList;
+    }
+
+    public void setEncounterList(ArrayList<PatientLastEncounter> encounterList) {
+        this.encounterList = encounterList;
+    }
+
+    public Hospital getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(Hospital hospital) {
+        this.hospital = hospital;
+    }
+    
+    
     
 }

@@ -12,11 +12,6 @@ public class Doctor extends Person {
     private String speciality;
     private int fees;
 
-    public Doctor(String speciality, int fees) {
-        this.speciality = speciality;
-        this.fees = fees;
-    }
-
     public String getSpeciality() {
         return speciality;
     }
