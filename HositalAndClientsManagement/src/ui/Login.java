@@ -5,7 +5,12 @@
 package ui;
 
 import javax.swing.JOptionPane;
-
+import model.City.City;
+import model.City.CommunityList;
+import model.City.HouseList;
+import model.Users.Person;
+import model.Users.DummyData;
+import model.Users.PersonList;
 /**
  *
  * @author nikhilbindal
@@ -15,8 +20,19 @@ public class Login extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
+    private String userType = "System Administrator";
+    private CommunityList communityList;
+    private City city;
+    private HouseList houseList;
     public Login() {
         initComponents();
+        DummyData dummyData = new DummyData();
+        communityList = new CommunityList();
+        city = new City();
+        houseList = new HouseList();
+//        dummyData.createPerson("System", "Admin", 987654320, "SysAdmin", "admin");
+//        dummyData.createPerson("Hospital", "Admin", 987654321, "HospitalAdmin", "admin");
+//        dummyData.createPerson("City", "Admin", 987654322, "CityAdmin", "admin");
     }
 
     /**
@@ -28,10 +44,10 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        loginPanel = new javax.swing.JPanel();
         headerPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblCloseApp = new javax.swing.JLabel();
+        lblLogin = new javax.swing.JLabel();
         lblLoginAs = new javax.swing.JLabel();
         roleDropdown = new javax.swing.JComboBox<>();
         lblUsername = new javax.swing.JLabel();
@@ -42,57 +58,62 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        loginPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         headerPanel.setBackground(new java.awt.Color(102, 102, 255));
         headerPanel.setForeground(new java.awt.Color(255, 255, 255));
         headerPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("X");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lblCloseApp.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        lblCloseApp.setForeground(new java.awt.Color(255, 255, 255));
+        lblCloseApp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCloseApp.setText("X");
+        lblCloseApp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                lblCloseAppMouseClicked(evt);
             }
         });
-        headerPanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 30, -1));
+        headerPanel.add(lblCloseApp, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 30, -1));
 
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Login Here!");
-        headerPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 386, -1));
+        lblLogin.setFont(new java.awt.Font("Helvetica Neue", 1, 24)); // NOI18N
+        lblLogin.setForeground(new java.awt.Color(255, 255, 255));
+        lblLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblLogin.setText("Login Here!");
+        headerPanel.add(lblLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 386, -1));
 
-        jPanel1.add(headerPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 85));
+        loginPanel.add(headerPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 85));
 
         lblLoginAs.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblLoginAs.setForeground(new java.awt.Color(153, 153, 153));
         lblLoginAs.setText("Login As:");
-        jPanel1.add(lblLoginAs, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 157, -1, -1));
+        loginPanel.add(lblLoginAs, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 157, -1, -1));
 
         roleDropdown.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "System Administrator", "City Administrator", "Hospital Administrator", "Doctor", "Personal" }));
         roleDropdown.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(255, 153, 102)));
-        jPanel1.add(roleDropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 193, 244, 35));
+        roleDropdown.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                roleDropdownActionPerformed(evt);
+            }
+        });
+        loginPanel.add(roleDropdown, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 193, 244, 35));
 
         lblUsername.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblUsername.setForeground(new java.awt.Color(153, 153, 153));
         lblUsername.setText("Username :");
-        jPanel1.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 246, -1, -1));
+        loginPanel.add(lblUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 246, -1, -1));
 
         txtUsername.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         txtUsername.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(255, 153, 102)));
-        jPanel1.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 282, 244, 32));
+        loginPanel.add(txtUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 282, 244, 32));
 
         lblPassword.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(153, 153, 153));
         lblPassword.setText("Password :");
-        jPanel1.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 352, -1, -1));
+        loginPanel.add(lblPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 352, -1, -1));
 
         txtPassword.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
         txtPassword.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 2, 1, new java.awt.Color(255, 153, 102)));
-        jPanel1.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 388, 243, 35));
+        loginPanel.add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 388, 243, 35));
 
         btnLogin.setBackground(new java.awt.Color(102, 102, 255));
         btnLogin.setFont(new java.awt.Font("Helvetica Neue", 1, 14)); // NOI18N
@@ -103,26 +124,26 @@ public class Login extends javax.swing.JFrame {
                 btnLoginActionPerformed(evt);
             }
         });
-        jPanel1.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 462, 243, 38));
+        loginPanel.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 462, 243, 38));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(loginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(loginPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void lblCloseAppMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCloseAppMouseClicked
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_lblCloseAppMouseClicked
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
@@ -130,20 +151,75 @@ public class Login extends javax.swing.JFrame {
         String password = String.valueOf(txtPassword.getPassword());
         if(username.isBlank() || username.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Username field is empty");
+            return;
         } else if(password.isBlank() || password.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Password field is empty");
-        } else if (!username.equals("Admin")) {
-            JOptionPane.showMessageDialog(this, "Invalid Username!");
-        } else if(!password.equals("admin")) {
-            JOptionPane.showMessageDialog(this, "Invalid Password!");
-        } else {
-            JOptionPane.showMessageDialog(this, "Login Successful!");
-//            Dashboard dashboard = new Dashboard();
-//            dashboard.setVisible(true);
-            this.dispose();
+            return;
+        }
+        
+        if (userType.equals("System Administrator")) {
+            if (!username.equals("SysAdmin")) {
+                JOptionPane.showMessageDialog(this, "Invalid Username!");
+            } else if(!password.equals("admin")) {
+                JOptionPane.showMessageDialog(this, "Invalid Password!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Login Successful!");
+                Dashboard dashboard = new Dashboard(city, communityList, houseList);
+                dashboard.setVisible(true);
+                this.dispose();
+            }
+        }
+        
+        if (userType.equals("City Administrator")) {
+            if (!username.equals("CityAdmin")) {
+                JOptionPane.showMessageDialog(this, "Invalid Username!");
+            } else if(!password.equals("admin")) {
+                JOptionPane.showMessageDialog(this, "Invalid Password!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Login Successful!");
+//                CityAdminDashboard dashboard = new CityAdminDashboard(city, communityList, houseList);
+//                dashboard.setVisible(true);
+                this.dispose();
+            }
+        }
+        
+        if (userType.equals("Hospital Administrator")) {
+            if (!username.equals("HospitalAdmin")) {
+                JOptionPane.showMessageDialog(this, "Invalid Username!");
+            } else if(!password.equals("admin")) {
+                JOptionPane.showMessageDialog(this, "Invalid Password!");
+            } else {
+                JOptionPane.showMessageDialog(this, "Login Successful!");
+                HospitalAdminDashboard dashboard = new HospitalAdminDashboard();
+                dashboard.setVisible(true);
+                this.dispose();
+            }
+        }
+        
+        if (userType.equals("Patient")) {
+            JOptionPane.showMessageDialog(this, "User doesnot exist!");
+//            if (!username.equals("Patient")) {
+//                JOptionPane.showMessageDialog(this, "Invalid Username!");
+//            } else if(!password.equals("admin")) {
+//                JOptionPane.showMessageDialog(this, "Invalid Password!");
+//            } else {
+//                JOptionPane.showMessageDialog(this, "Login Successful!");
+//                Dashboard dashboard = new Dashboard();
+//                dashboard.setVisible(true);
+//                this.dispose();
+//            }
+        }
+        
+        if (userType.equals("Doctor")) {
+            JOptionPane.showMessageDialog(this, "User doesnot exist!");
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
+    private void roleDropdownActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_roleDropdownActionPerformed
+        // TODO add your handling code here:
+        this.userType = roleDropdown.getSelectedItem().toString();
+    }//GEN-LAST:event_roleDropdownActionPerformed
+  
     /**
      * @param args the command line arguments
      */
@@ -175,6 +251,7 @@ public class Login extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Login().setVisible(true);
+                
             }
         });
     }
@@ -182,12 +259,12 @@ public class Login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JPanel headerPanel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblCloseApp;
+    private javax.swing.JLabel lblLogin;
     private javax.swing.JLabel lblLoginAs;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblUsername;
+    private javax.swing.JPanel loginPanel;
     private javax.swing.JComboBox<String> roleDropdown;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;

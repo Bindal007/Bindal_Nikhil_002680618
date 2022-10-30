@@ -2,12 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model.User;
-
-//import com.toedter.calendar.JDateChooser;
+package model.Users;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 /**
  *
  * @author nikhilbindal
@@ -24,7 +21,7 @@ public class Person {
     private boolean isPatient;
     private String username;
     private String password;
-    private long phoneNo;
+    private ContactDetails contactDetails;
     
     public String getFname() {
         return fname;
@@ -120,22 +117,12 @@ public class Person {
         this.password = password;
     }
 
-    public long getPhoneNo() {
-        return phoneNo;
+    public ContactDetails getContactDetails() {
+        return contactDetails;
     }
 
-    public void setPhoneNo(long phoneNo) {
-        this.phoneNo = phoneNo;
-    }
-    
-    public void createNewPerson(String fn, String ln, long ssn, String uname, String pass) {
-//        Person person = PersonList.addPerson();
-        Person person = new Person();
-        person.fname = fn;
-        person.lname = ln;
-        person.ssn = ssn;
-        person.username = uname;
-        person.password = pass;
+    public void setContactDetails(ContactDetails contactDetails) {
+        this.contactDetails = contactDetails;
     }
     
 }

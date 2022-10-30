@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package user;
+package model.Users;
 
 /**
  *
@@ -10,12 +10,12 @@ package user;
  */
 public class ContactDetails {
 
-    private String phoneNumber;
+    private long phoneNumber;
     private String email;
     private String address;
     
 
-    public ContactDetails(String phoneNumber, String email, String address) {
+    public ContactDetails(long phoneNumber, String email, String address) {
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.address = address;
@@ -23,11 +23,11 @@ public class ContactDetails {
     
     
 
-    public String getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
