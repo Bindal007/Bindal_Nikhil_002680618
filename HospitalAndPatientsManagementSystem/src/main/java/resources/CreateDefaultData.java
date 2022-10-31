@@ -86,9 +86,9 @@ public class CreateDefaultData {
         Patient pa5 = MainJFrame.patientDirectory.newPatient("Heark attack", h2, e, "sayoni", 24, "sayoni@gmail.com", "Female", "2547878787", lowell, mr, "sayoni", "vbhv10");
         
         // Create Admins
-        Admins ad1 = MainJFrame.adminDirectory.newAdmin("vaibhav", 24, "vaibhav@gmail.com", "Male", "7878787878", boston, jp, "vbhv", "vbhv10", Admins.AdminType.SYSTEM);
-        Admins ad2 = MainJFrame.adminDirectory.newAdmin("megha", 25, "megha@gmail.com", "Female", "7878743878", springField, gb, "megha", "vbhv10", Admins.AdminType.COMMUNITY);
-        Admins ad3 = MainJFrame.adminDirectory.newAdmin("nalin", 26, "nalin@gmail.com", "Male", "9878787878", worcester, vn, "nalin", "vbhv10", Admins.AdminType.HOSPITAL);
+        Admins ad1 = MainJFrame.adminDirectory.newAdmin("nikhil", 24, "vaibhav@gmail.com", "Male", "7878787878", boston, jp, "vbhv", "vibhu1996", Admins.AdminType.SYSTEM);
+        Admins ad2 = MainJFrame.adminDirectory.newAdmin("farheen", 25, "megha@gmail.com", "Female", "7878743878", springField, gb, "megha", "vibhu1996", Admins.AdminType.COMMUNITY);
+        Admins ad3 = MainJFrame.adminDirectory.newAdmin("Vibhu", 26, "nalin@gmail.com", "Male", "9878787878", worcester, vn, "nalin", "vibhu1996", Admins.AdminType.HOSPITAL);
         
         Encounter e1 = MainJFrame.encounterDirectory.newEncounter(new Date(1998, 10, 10), d1, a, pa1);
     }
